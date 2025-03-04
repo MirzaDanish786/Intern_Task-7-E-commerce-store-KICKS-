@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Listing items</title>
+</head>
+<body class="bg-gray-200 custom-scrollbar">
+    <header>
+        <nav
+          class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px]"
+        >
+          <ul class="flex justify-between">
+            <!-- navLeft -->
+            <li class="navLeft font-semibold text-[16px] w-[30%]">
+              <ul class="flex justify-center items-center gap-[40px]">
+                <li>New Drops 🔥</li>
+                <li class="flex justify-center items-center">
+                  <div>Men</div>
+                  <img src="icons/dropDown.svg" alt="" />
+                </li>
+                <li class="flex justify-center items-center">
+                  <div>Women</div>
+                  <img src="icons/dropDown.svg" alt="" />
+                </li>
+              </ul>
+            </li>
+  
+            <!-- navCenter -->
+            <li>
+              <div class="w-[128px]">
+                <img class="w-full object-contain" src="images/Logo.png" alt="" />
+              </div>
+            </li>
+  
+            <!-- navRight -->
+            <li class="w-[30%]">
+              <ul class="flex justify-end items-center gap-[40px]">
+                <li>
+                  <div class="w-[28px]">
+                    <img
+                      class="w-full object-contain"
+                      src="icons/search.svg"
+                      alt=""
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div class="w-[24px]">
+                    <img
+                      class="w-full object-contain"
+                      src="icons/userIcon.svg"
+                      alt=""
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1"
+                  >
+                    0
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Our Products -->
+       <main class="sticky top-0 z-20 h-[100vh] ">
+        <div class="ourProducts w-[92%] mx-auto  ">
+            <div class="ourProductsUpper flex justify-between items-center">
+                <div>
+                    <div class="font-semibold text-[36px]">
+                        Our Products
+                    </div>
+                    <div class="productsCount font-semibold text-[16px] text-[#232321] opacity-[80%]">
+                      
+                    </div>
+                </div>
+                <div class="">
+                    <button class="font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px]">
+                        <div>
+                            Trending
+                        </div>
+                        <div>
+                            <img src="icons/downArrow.svg" alt="">
+                        </div>
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="categoryWrapper flex h-[80vh] gap-[10px]">
+                <div class="categoryFilter  w-[25%]">
+                    <div class="categoryFilter_Heading font-semibold text-[24px] flex gap-[25px] items-center  my-[20px] cursor-pointer select-none">
+                      <div>
+                        Category Filter
+                      </div>
+                      <div>
+                        <img class="categoryFilterDropDownIcon w-full object-contain transition-all duration-150" src="icons/downArrow.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="categoryListContainer h-[200px] overflow-y-auto hidden bg-[#d1d1d1] rounded-[15px] px-[10px] py-[10px] custom-scrollbar">
+                        <!--  -->
+                    </div>
+                </div>
+                <div class="categoryListGrid  w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit  custom-scrollbar">
+
+                  <!-- card1 -->
+                  <div class="categoryListGrid_Cards flex flex-col gap-[16px] min-h-[500px] justify-between">
+                    <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
+                      <img class="categoryListGrid_Cards_img object-contain" src="images/shoesImg.png" alt="" />
+                    </div>
+                    
+                    <div class="categoryListGrid_Cards_Title font-semibold text-[24px] flex-grow">
+                      ADIDAS 4DFWD X PARLEY RUNNING SHOES
+                    </div>
+                    <div>
+                      <button
+                        class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+                      >
+                        <div class="text-[#FFFFFF]">View Product</div>
+                        <div class="text-[#FFFFFF]">-</div>
+                        <div class="categoryListGrid_Cards_Price text-[#FFA52F]">$125</div>
+                      </button>
+                    </div>
+                  </div>
+
+                  
+              
+
+
+
+                </div>
+            </div>
+        </div>
+       </main>
+       <script src="scriptListingPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+body{
+    font-family: "Rubik", sans-serif;
+}
+.heading{
+    font-weight: 600;
+    font-size: 74px;
+}
+
+.categoryListContainer {
+    box-shadow: inset 0px -20px 20px 0px #00000054;
+}
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #d3d2d2;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #6b7280; 
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #4b5563; 
+}
+

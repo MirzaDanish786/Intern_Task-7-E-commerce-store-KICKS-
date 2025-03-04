@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Kicks e-commerce Website</title>
+  </head>
+  <body class="bg-gray-200">
+    <header>
+      <nav
+        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px]"
+      >
+        <ul class="flex justify-between">
+          <!-- navLeft -->
+          <li class="navLeft font-semibold text-[16px] w-[30%]">
+            <ul class="flex justify-center items-center gap-[40px]">
+              <li>New Drops 🔥</li>
+              <li class="flex justify-center items-center">
+                <div>Men</div>
+                <img src="icons/dropDown.svg" alt="" />
+              </li>
+              <li class="flex justify-center items-center">
+                <div>Women</div>
+                <img src="icons/dropDown.svg" alt="" />
+              </li>
+            </ul>
+          </li>
+
+          <!-- navCenter -->
+          <li>
+            <div class="w-[128px]">
+              <img class="w-full object-contain" src="images/Logo.png" alt="" />
+            </div>
+          </li>
+
+          <!-- navRight -->
+          <li class="w-[30%]">
+            <ul class="flex justify-end items-center gap-[40px]">
+              <li>
+                <div class="w-[28px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/search.svg"
+                    alt=""
+                  />
+                </div>
+              </li>
+              <li>
+                <div class="w-[24px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/userIcon.svg"
+                    alt=""
+                  />
+                </div>
+              </li>
+              <li>
+                <div
+                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1"
+                >
+                  0
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero section -->
+    <main>
+      <div class="heroSection w-[92%] mx-auto">
+        <div
+          class="upperSection font-bold text-[210.5px] flex justify-between"
+        >
+          <div class="text-[#232321]">DO</div>
+          <div class="text-[#232321]">IT</div>
+          <div class="text-[#4A69E2]">RIGHT</div>
+        </div>
+        <!-- Hero_LowerSection -->
+        <div
+          class="lowerSection bg-[url('images/heroSection_img1.png')] bg-center bg-contain bg-no-repeat h-[750px] flex justify-start items-end p-[48px] relative"
+        >
+          <div class="heroSection_Content">
+            <div class="heading text-white">NIKE AIR MAX</div>
+            <div class="font-normal text-[24px] text-white w-[410px] mb-[24px]">
+              Nike introducing the new air max for everyone's comfort
+            </div>
+            <div>
+              <button
+                class="font-medium text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+              >
+                SHOP NOW
+              </button>
+            </div>
+          </div>
+
+          <!-- Change image -->
+          <div
+            class="changeImageContainer flex flex-col gap-[16px] absolute right-[32px] bottom-[32px]"
+          >
+            <div
+              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat"
+            ></div>
+            <div
+              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Drops -->
+      <div class="newDrops w-[92%] mx-auto my-[90px] flex flex-col gap-[32px]">
+        <div class="newDrops_Upper flex justify-between items-end">
+          <div class="heading w-[50%]">DON’T MISS OUT NEW DROPS</div>
+          <div>
+            <button
+              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+            >
+              SHOP NEW DROPS
+            </button>
+          </div>
+        </div>
+
+        <div class="newDrops_Grid grid grid-cols-4 gap-[16px]">
+          <!-- card1 -->
+          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
+              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+            </div>
+            
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+              ADIDAS 4DFWD X PARLEY RUNNING SHOES
+            </div>
+            <div>
+              <button
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+              >
+                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]">-</div>
+                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+              </button>
+            </div>
+           
+          </div>
+          <!-- card2 -->
+          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
+              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+            </div>
+            
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+              ADIDAS 4DFWD X PARLEY RUNNING SHOES
+            </div>
+            <div>
+              <button
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+              >
+                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]">-</div>
+                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+              </button>
+            </div>
+           
+          </div>
+          <!-- card3 -->
+          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
+              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+            </div>
+            
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+              ADIDAS 4DFWD X PARLEY RUNNING SHOES
+            </div>
+            <div>
+              <button
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+              >
+                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]">-</div>
+                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+              </button>
+            </div>
+           
+          </div>
+          <!-- card4 -->
+          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
+              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+            </div>
+            
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+              ADIDAS 4DFWD X PARLEY RUNNING SHOES
+            </div>
+            <div>
+              <button
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+              >
+                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]">-</div>
+                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+              </button>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="categoriesSection_Wrapper bg-[#232321]">
+        <div class="categoriesSection pt-[90px]">
+          <div
+            class="catergories_UpperSection flex justify-between items-center w-[92%] mx-[auto] mb-[64px]"
+          >
+            <div class="heading text-white">CATEGORIES</div>
+            <div class="flex gap-[16px]">
+              <button
+                class="previousCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer"
+              >
+                <img src="icons/previousIcon.svg" alt="" />
+              </button>
+              <button
+                class="nextCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer"
+              >
+                <img src="icons/nextIcon.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="catergories_LowerSection ml-[5%] bg-white rounded-tl-[64px] flex"
+          >
+            <div
+              class="catergoryLeft w-[50%] px-[48px] py-[30px] rounded-tl-[64px]"
+            >
+              <div class="catergoryLeft_imageContainer w-[80%] mx-auto">
+                <img
+                  class="categoryImage w-full object-contain"
+                  src="images/catergoryShoe.png"
+                  alt=""
+                />
+              </div>
+              <div class="flex justify-between items-center">
+                <div
+                  class="catergoryLeft_text font-semibold text-[36px] w-[40%] uppercase"
+                >
+                  Lifestyle Shoes
+                </div>
+                <div>
+                  <button
+                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer"
+                  >
+                    <img src="icons/gotoIcon.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="catergoryRight w-[50%] px-[48px] py-[30px]">
+              <div class="catergoryLeft_imageContainer w-[80%] mx-auto">
+                <img
+                  class="categoryImage w-full object-contain"
+                  src=" images/catergoryShoe.png"
+                  alt=""
+                />
+              </div>
+
+              <div class="flex justify-between items-center">
+                <div
+                  class="catergoryRight_text font-semibold text-[36px] w-[40%] uppercase"
+                >
+                  Basketball Shoes
+                </div>
+                <div>
+                  <button
+                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer"
+                  >
+                    <img src="icons/gotoIcon.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ReviewsSection -->
+
+      <div class="reviewsSection w-[90%] mx-auto my-[128px]">
+        <div class="reviews_Upper flex justify-between items-center mb-[48px]">
+          <div class="heading">REVIEWS</div>
+          <div>
+            <button
+              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+            >
+              SEE ALL
+            </button>
+          </div>
+        </div>
+
+        <div class="reviewsSectionCards_Grid grid grid-cols-3 gap-[16.33px]">
+          <div class="reviewsSectionCard_1">
+            <div
+              class="reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+            >
+              <div class="flex gap-3">
+                <div class="title">
+                  <div class="font-semibold text-[24px]">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]">
+                    I highly recommend shopping from kicks
+                  </div>
+                </div>
+                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/userIcon.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="stars flex gap-1 items-center">
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div>5.0</div>
+              </div>
+            </div>
+
+            <div
+              class="reviewSectionCard_1_Lower rounded-br-[32px] rounded-bl-[32px]"
+            >
+              <img
+                class="rounded-br-[32px] rounded-bl-[32px]"
+                src="images/reviewCardImage.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="reviewsSectionCard_2">
+            <div
+              class="reviewsSectionCard_2_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+            >
+              <div class="flex gap-3">
+                <div class="title">
+                  <div class="font-semibold text-[24px]">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]">
+                    I highly recommend shopping from kicks
+                  </div>
+                </div>
+                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/userIcon.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="stars flex gap-1 items-center">
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div>5.0</div>
+              </div>
+            </div>
+
+            <div
+              class="reviewSectionCard_2_Lower rounded-br-[32px] rounded-bl-[32px]"
+            >
+              <img
+                class="rounded-br-[32px] rounded-bl-[32px]"
+                src="images/reviewCardImage.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="reviewsSectionCard_3">
+            <div
+              class="reviewsSectionCard_3_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+            >
+              <div class="flex gap-3">
+                <div class="title">
+                  <div class="font-semibold text-[24px]">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]">
+                    I highly recommend shopping from kicks
+                  </div>
+                </div>
+                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/userIcon.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="stars flex gap-1 items-center">
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div><img src="icons/star.svg" alt="" /></div>
+                <div>5.0</div>
+              </div>
+            </div>
+
+            <div
+              class="reviewSectionCard_3_Lower rounded-br-[32px] rounded-bl-[32px]"
+            >
+              <img
+                class="rounded-br-[32px] rounded-bl-[32px]"
+                src="images/reviewCardImage.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
