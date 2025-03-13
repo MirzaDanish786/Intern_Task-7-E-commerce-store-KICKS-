@@ -4,6 +4,7 @@ async function filterCategoryData(category, rating = 0) {
 
   let url = category ? `https://dummyjson.com/products/category/${category}` : `https://dummyjson.com/products?limit=100`;
   let response = await fetch(url);
+  
   let data = await response.json();
 
   let filteredProducts = data.products.filter(product => product.rating >= rating);
@@ -16,7 +17,6 @@ async function filterCategoryData(category, rating = 0) {
 }
 
 function send_Details_Of_Item(id, category){
-  // let id = index+1;
   window.location.href = `ProductDetail.html?id=${id}&category=${category}`
 }
 
