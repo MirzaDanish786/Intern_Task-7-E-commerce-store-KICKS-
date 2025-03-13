@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    box-sizing: border-box;
+}
 html,body{
     width: 100%;
     height: 100%;
@@ -12,9 +15,9 @@ body{
     font-size: 74px;
 }
 
-.categoryListContainer {
+/* .categoryListContainer {
     box-shadow: inset 0px -20px 20px 0px #00000054;
-}
+} */
 /* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
     <link rel="stylesheet" href="style.css" />
     <title>Listing items</title>
 </head>
@@ -31,7 +32,9 @@
             <!-- navCenter -->
             <li>
               <div class="w-[128px]">
-                <img class="w-full object-contain" src="images/Logo.png" alt="" />
+                <a href="LandingPage.html">
+                  <img class="w-full object-contain" src="images/Logo.png" alt="" />
+                </a>
               </div>
             </li>
   
@@ -82,63 +85,91 @@
                     </div>
                 </div>
                 <div class="">
-                    <button class="font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px]">
+                    <button class="trendingBtn font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px]">
                         <div>
                             Trending
                         </div>
                         <div>
                             <img src="icons/downArrow.svg" alt="">
                         </div>
-
                     </button>
+                
                 </div>
             </div>
 
             <div class="categoryWrapper flex h-[80vh] gap-[10px]">
-                <div class="categoryFilter  w-[25%]">
-                    <div class="categoryFilter_Heading font-semibold text-[24px] flex gap-[25px] items-center  my-[20px] cursor-pointer select-none">
+                <div class="categoryFilter  w-[25%] flex flex-col gap-6">
+                  <div>
+                    <div class="categoryFilter_Heading font-semibold text-[20px] flex justify-between items-center cursor-pointer select-none border p-3 rounded-[8px] bg-[#eeeeee]">
                       <div>
                         Category Filter
                       </div>
-                      <div>
+                      <div class="w-[20px]">
                         <img class="categoryFilterDropDownIcon w-full object-contain transition-all duration-150" src="icons/downArrow.svg" alt="">
                       </div>
                     </div>
-                    <div class="categoryListContainer h-[200px] overflow-y-auto hidden bg-[#d1d1d1] rounded-[15px] px-[10px] py-[10px] custom-scrollbar">
-                        <!--  -->
-                    </div>
-                </div>
-                <div class="categoryListGrid  w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit  custom-scrollbar">
-
-                  <!-- card1 -->
-                  <div class="categoryListGrid_Cards flex flex-col gap-[16px] min-h-[500px] justify-between">
-                    <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
-                      <img class="categoryListGrid_Cards_img object-contain" src="images/shoesImg.png" alt="" />
-                    </div>
-                    
-                    <div class="categoryListGrid_Cards_Title font-semibold text-[24px] flex-grow">
-                      ADIDAS 4DFWD X PARLEY RUNNING SHOES
-                    </div>
-                    <div>
-                      <button
-                        class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
-                      >
-                        <div class="text-[#FFFFFF]">View Product</div>
-                        <div class="text-[#FFFFFF]">-</div>
-                        <div class="categoryListGrid_Cards_Price text-[#FFA52F]">$125</div>
-                      </button>
+                    <div class="categoryListContainer h-[150px] overflow-y-auto hidden bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] custom-scrollbar border ">
+                        <!-- Categories are dynamically appears here: -->
                     </div>
                   </div>
 
-                  
+                  <div>
+                    <!-- Rating Filter -->
+                     <div class="ratingFilter flex items-center cursor-pointer justify-between border bg-[#eeeeee] rounded-[8px] p-3">
+
+                      <div class="font-semibold text-[20px] flex gap-[25px] items-center select-none">
+                        Filter by rating
+                      </div>
+                      <div class="w-[20px]">
+                        <img class="ratingFilterDropDownIcon w-full object-contain transition-all duration-150" src="icons/downArrow.svg" alt="">
+                      </div>
+                     </div>
+
+                     <!-- RatingList -->
+                          <div class="ratingList hidden text-[20px]  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] border ">
+                            <label>
+                              <input type="radio" name="rating" value="4" checked>
+                              4⭐ & above
+                            </label>
+                            <br>
+                            <label>
+                              <input type="radio" name="rating" value="3">
+                              3⭐ & above
+                            </label>
+                            <br>
+                            <label>
+                              <input type="radio" name="rating" value="2">
+                              2⭐ & above
+                            </label>
+                            <br>
+                            <label>
+                              <input type="radio" name="rating" value="1">
+                              1⭐ & above
+                            </label>
+                            <br>
+                            <label>
+                              <input type="radio" name="rating" value="0">
+                              None of above
+                            </label>
+                          </div>
+                        </div>
+
+
+
+
+                </div>
+                <div class="categoryListGrid  w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit custom-scrollbar">
+                  <!-- Cards are dynamically appears here -->
               
-
-
-
+                 
                 </div>
             </div>
         </div>
        </main>
+
+
+
+   
        <script src="scriptListingPage.js"></script>
 </body>
 </html>

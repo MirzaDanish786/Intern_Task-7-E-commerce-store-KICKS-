@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Product Details</title>
+  </head>
+  <body class="bg-gray-200">
+    <header>
+      <nav
+        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px]"
+      >
+        <ul class="flex justify-between">
+          <!-- navLeft -->
+          <li class="navLeft font-semibold text-[16px] w-[30%]">
+            <ul class="flex justify-center items-center gap-[40px]">
+              <li>New Drops 🔥</li>
+              <li class="flex justify-center items-center">
+                <div>Men</div>
+                <img src="icons/dropDown.svg" alt="" />
+              </li>
+              <li class="flex justify-center items-center">
+                <div>Women</div>
+                <img src="icons/dropDown.svg" alt="" />
+              </li>
+            </ul>
+          </li>
+
+          <!-- navCenter -->
+          <li>
+            <div class="w-[128px]">
+              <a href="LandingPage.html">
+                <img
+                  class="w-full object-contain"
+                  src="images/Logo.png"
+                  alt=""
+                />
+              </a>
+            </div>
+          </li>
+
+          <!-- navRight -->
+          <li class="w-[30%]">
+            <ul class="flex justify-end items-center gap-[40px]">
+              <li>
+                <div class="w-[28px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/search.svg"
+                    alt=""
+                  />
+                </div>
+              </li>
+              <li>
+                <div class="w-[24px]">
+                  <img
+                    class="w-full object-contain"
+                    src="icons/userIcon.svg"
+                    alt=""
+                  />
+                </div>
+              </li>
+              <li>
+                <div
+                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1"
+                >
+                  0
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+      <div class="productDetailSection w-[92%] mx-auto flex gap-[16px]">
+        <!-- Product image section -->
+        <div
+          class="productImageSection w-[65%] flex justify-center items-center bg-white rounded-[48px]"
+        >
+          <div class="productImageContainer w-[60%]">
+            <!-- Image appear here: -->
+          </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="productDetails w-[35%]">
+          <div class="flex flex-col gap-[16px] mb-[32px]">
+            <div>
+              <button
+                class="font-medium text-[14px] text-white bg-[#4A69E2] py-[12px] px-[16px] rounded-[12px] cursor-pointer"
+              >
+                New Release
+              </button>
+            </div>
+            <div class="productTtle font-semibold text-[32px]"></div>
+            <div class="price text-[#4A69E2] font-semibold text-[24px]"></div>
+          </div>
+
+          <!-- Button container -->
+          <div class="flex flex-col gap-[8px]">
+            <div class="flex justify-between gap-[8px]">
+              <div class="flex w-full">
+                <button
+                  class="w-full bg-[#232321] flex justify-center items-center py-[15.5px] rounded-[8px] text-white cursor-pointer"
+                >
+                  ADD TO CART
+                </button>
+              </div>
+              <div>
+                <button
+                  class="bg-[#232321] py-[15.5px] flex justify-center items-center rounded-[8px] p-[18.5px] cursor-pointer"
+                >
+                  <div class="w-[24px]">
+                    <img class="w-[24px]" src="icons/heart.svg" alt="" />
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div>
+              <div class="flex w-full ">
+                <button
+                  class="bg-[#4A69E2] w-full flex justify-center items-center py-[15.5px] rounded-[8px] text-white cursor-pointerfs"
+                >
+                  BUY IT NOW
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="aboutProduct mt-[30px]">
+            <div class="flex flex-col gap-[4px]">
+              <div class="uppercase text-[16px] font-semibold">
+                About the Product
+              </div>
+              <div class="description opacity-[80%]"></div>
+            </div>
+            <div class="stock"></div>
+            <div class="warranty"></div>
+            <div class="shipping"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SuggestionSection -->
+      <div
+        class="suggestionSection w-[92%] mx-auto mt-[128px] flex flex-col gap-[32px]"
+      >
+        <div class="suggestUpper flex justify-between items-center">
+          <div class="font-semibold text-[48px]">You may also like</div>
+          <div class="flex gap-[16px]">
+            <button
+              class="previousCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]"
+            >
+              <img class="invert" src="icons/previousIcon.svg" alt="" />
+            </button>
+            <button
+              class="nextCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]"
+            >
+              <img class="invert" src="icons/nextIcon.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Swiper Container -->
+
+        <div class="w-full mx-auto ">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Cards -->
+                <!-- Suggested items appears here:   -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="detailPageScript.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        slidesPerView: 4, // Show 4 cards at a time
+        spaceBetween: 20, // Space between cards
+        slidesPerGroup: 4, // Move 4 cards at a time
+        navigation: {
+          nextEl: ".nextCat",
+          prevEl: ".previousCat",
+        },
+        breakpoints: {
+          768: { slidesPerView: 4, slidesPerGroup: 4 }, 
+          1024: { slidesPerView: 4, slidesPerGroup: 4 }, 
+        },
+      });
+    </script>
+  </body>
+</html>
