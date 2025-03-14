@@ -1,19 +1,62 @@
-async function filterCategoryData(category, rating = 0) {
+async function filterCategoryData(categories, rating = 0) {
   let categoryListGrid = document.querySelector(".categoryListGrid");
   categoryListGrid.innerHTML = '';
 
-  let url = category ? `https://dummyjson.com/products/category/${category}` : `https://dummyjson.com/products?limit=100`;
-  let response = await fetch(url);
-  
-  let data = await response.json();
+  let url;
+  let arrayURL= [];
+  let arrayPromises = [];
 
-  let filteredProducts = data.products.filter(product => product.rating >= rating);
-  // console.log("Filter cards: ",filteredProducts );
+  if(categories.length === 0){
+    url = `https://dummyjson.com/products?limit=100`;
+    let response = await fetch(url);
+    let data = await response.json();
+    // console.log(data.products[0].rating );
+    let filteredProducts = data.products.filter(product => product.rating >= rating); 
+    filteredProducts.forEach((product, index)=>{
+      let card = createProductCard(product, index);
+      categoryListGrid.append(card);
+    })
+  }
+  else{
+    arrayURL = categories.map(categroy => `https://dummyjson.com/products/category/${categroy}` );
+    // console.log("URL Array: "+arrayURL );
+    arrayPromises = arrayURL.map(url => fetch(url));
+    // console.log(arrayPromises );
+
+    let responses = await Promise.all(arrayPromises);
+    let data = await Promise.all(responses.map(response => response.json()));
+    // console.log(data );
+    
+    let products = data.flatMap(d => d.products);
+    console.log("Data: ",products );
+
+    // FilteredProducts according to rating:
+    let filteredProducts = products.filter(product => product.rating>=rating);
+    console.log(filteredProducts );
+    filteredProducts.forEach((product, index)=>{
+      let card = createProductCard(product, index);
+      categoryListGrid.append(card);
+    })
+    
+    
+    
+        
+    
+
+  }
+
+  // url = categories ? `https://dummyjson.com/products/category/${categories}` : `https://dummyjson.com/products?limit=100`;
+  // let response = await fetch(url);
   
-  filteredProducts.forEach((item, index) => {
-    let card = createProductCard(item, index);
-    categoryListGrid.appendChild(card);
-  });
+  // let data = await response.json();
+
+  // let filteredProducts = data.products.filter(product => product.rating >= rating);
+  // // console.log("Filter cards: ",filteredProducts );
+  
+  // filteredProducts.forEach((item, index) => {
+  //   let card = createProductCard(item, index);
+  //   categoryListGrid.appendChild(card);
+  // });
 }
 
 function send_Details_Of_Item(id, category){
@@ -91,11 +134,14 @@ function createProductCard(data, index) {
 document.addEventListener("DOMContentLoaded", async () => {
   let response = await fetch("https://dummyjson.com/products/categories");
   let data = await response.json();
+  let selectedCategoriesSet = new Set();
+  console.log(typeof selectedCategoriesSet );
+  
   const categories = data;
 
   // Some declarations:
   let categoryListContainer = document.querySelector(".categoryListContainer");
-  let filterCategory = '';
+  // let filterCategory = '';
   let filterRating = 0; // Default rating filter
 
   // Create See All checkbox
@@ -129,7 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   seeAllInput.style.width = "20px";
   seeAllInput.style.cursor = "pointer";
   seeAllInput.checked = true;
-  filterCategoryData("", filterRating);
+  filterCategoryData([], filterRating);
 
   // Add event listener to seeAll:
   seeAllInput.addEventListener("change", function () {
@@ -142,8 +188,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           });
 
       if (seeAllInput.checked) {
-          filterCategory = "";
-          filterCategoryData(filterCategory, filterRating);
+          // filterCategory = "";
+          selectedCategoriesSet.clear();
+          // For debuing
+           console.log(typeof selectedCategoriesSet );
+
+          filterCategoryData([...selectedCategoriesSet], filterRating);
       }
   });
 
@@ -171,6 +221,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const label = document.createElement("label");
       label.setAttribute("for", category.slug);
+      
       label.textContent = category.name;
       label.classList.add("w-full");
       
@@ -184,19 +235,40 @@ document.addEventListener("DOMContentLoaded", async () => {
       input.style.width = "20px";
       input.style.cursor = "pointer";
 
+      
+     
+
       input.addEventListener("change", function () {
           seeAllInput.checked = false;
-          document
-              .querySelectorAll(".categoryListContainer input[type='checkbox']")
-              .forEach((checkbox) => {
-                  if (checkbox !== input) {
-                      checkbox.checked = false;
-                  }
-              });
+          // document
+          //     .querySelectorAll(".categoryListContainer input[type='checkbox']")
+          //     .forEach((checkbox) => {
+          //         if (checkbox !== input) {
+          //             checkbox.checked = false;
+          //         }
+          //     });
 
+          if(!input.checked && selectedCategoriesSet.size === 1){
+            input.checked = true;
+          }
           if (input.checked) {
-              filterCategory = `${input.id}`;
-              filterCategoryData(filterCategory, filterRating);
+              // filterCategory = `${input.id}`;
+              selectedCategoriesSet.add(input.id);
+              // console.log(input.id );
+              console.log(selectedCategoriesSet );
+
+              // For debuging
+              console.log(typeof selectedCategoriesSet );
+
+              
+              filterCategoryData([...selectedCategoriesSet], filterRating);
+          }
+          else if(input.checked == false){
+            selectedCategoriesSet.delete(input.id);
+              console.log(selectedCategoriesSet );
+              filterCategoryData([...selectedCategoriesSet], filterRating)
+              
+              
           }
       });
 
@@ -226,7 +298,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   ratingInputs.forEach(input => {
     input.addEventListener("change", function () {
       filterRating = parseInt(input.value);
-      filterCategoryData(filterCategory, filterRating);
+      filterCategoryData([...selectedCategoriesSet], filterRating);
     });
   });
 
@@ -234,5 +306,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector(".ratingList input[value='0']").checked = true;
 
   // Initial load
-  filterCategoryData(filterCategory, filterRating);
+  filterCategoryData([...selectedCategoriesSet], filterRating);
 });
