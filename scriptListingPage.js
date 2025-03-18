@@ -307,4 +307,47 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initial load
   filterCategoryData([...selectedCategoriesSet], filterRating);
+
+  // Code of the trending button drop down:
+  let trendingBtn = document.querySelector(".trendingBtn");
+  trendingBtn.addEventListener('click',()=>{
+    let trendingDropDown = document.querySelector(".trendingDropDown");
+    trendingDropDown.classList.toggle("hidden");
+    document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
+  })
+
+  let mostTrending = document.querySelector(".mostTrending");
+  let hotProducts = document.querySelector(".hotProducts");
+
+  mostTrending.addEventListener('mouseenter',(e)=>{
+    mostTrending.classList.add("bg-gray-300");
+    
+    
+  })
+  mostTrending.addEventListener('mouseleave',(e)=>{
+    mostTrending.classList.remove("bg-gray-300")
+    
+  })
+  hotProducts.addEventListener('mouseenter',(e)=>{
+    hotProducts.classList.add("bg-gray-300");
+    
+  })
+  hotProducts.addEventListener('mouseleave',(e)=>{
+    hotProducts.classList.remove("bg-gray-300")
+    
+  })
+  
+  
+  mostTrending.addEventListener("click",()=>{
+    filterCategoryData([...selectedCategoriesSet], 4);
+    document.querySelector(".trendingDropDown").classList.add("hidden")
+    document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
+
+  })
+  hotProducts.addEventListener('click',()=>{
+    filterCategoryData([...selectedCategoriesSet], 3);
+    document.querySelector(".trendingDropDown").classList.add("hidden")
+    document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
+
+  })
 });

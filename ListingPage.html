@@ -84,16 +84,22 @@
                       
                     </div>
                 </div>
-                <div class="">
-                    <button class="trendingBtn font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px]">
+                <div>
+                    <button class="trendingBtn font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px] cursor-pointer">
                         <div>
                             Trending
                         </div>
                         <div>
-                            <img src="icons/downArrow.svg" alt="">
+                            <img class="trendingDropDownImage transition-all duration-150" src="icons/downArrow.svg" alt="">
                         </div>
                     </button>
-                
+                    <div class="trendingDropDown w-[169px] hidden absolute rounded-[8px] bg-[#eeeeee] py-[10px] border">
+                      <ul class="flex flex-col justify-center gap-[5px] w-full">
+                        <li class="mostTrending px-[10px] cursor-pointer">✨Most Trending</li>
+                        <div class="divider h-[1px] w-full border"></div>
+                        <li class="hotProducts px-[10px] cursor-pointer">🔥Hot Products</li>
+                      </ul>
+                    </div>
                 </div>
             </div>
 
@@ -127,27 +133,27 @@
 
                      <!-- RatingList -->
                           <div class="ratingList hidden text-[20px]  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] border ">
-                            <label>
+                            <label class="cursor-pointer">
                               <input type="radio" name="rating" value="4" checked>
                               4⭐ & above
                             </label>
                             <br>
-                            <label>
+                            <label class="cursor-pointer">
                               <input type="radio" name="rating" value="3">
                               3⭐ & above
                             </label>
                             <br>
-                            <label>
+                            <label class="cursor-pointer">
                               <input type="radio" name="rating" value="2">
                               2⭐ & above
                             </label>
                             <br>
-                            <label>
+                            <label class="cursor-pointer">
                               <input type="radio" name="rating" value="1">
                               1⭐ & above
                             </label>
                             <br>
-                            <label>
+                            <label class="cursor-pointer">
                               <input type="radio" name="rating" value="0">
                               None of above
                             </label>
@@ -158,7 +164,7 @@
 
 
                 </div>
-                <div class="categoryListGrid  w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit custom-scrollbar">
+                <div class="categoryListGrid w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit custom-scrollbar">
                   <!-- Cards are dynamically appears here -->
               
                  

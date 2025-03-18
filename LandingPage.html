@@ -10,13 +10,47 @@
   <body class="bg-gray-200">
     <header>
       <nav
-        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px]"
+        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px] 
+        max-xl:px-10 max-xl:py-6
+        max-lg:px-5"
       >
-        <ul class="flex justify-between">
+        <ul class="flex justify-between ">
+              <!-- Hamburger Icon: -->
+              <li class="hamburgerSection hidden
+              max-md:block">
+               <div class="w-6">
+                 <img class="w-full object-contain" src="icons/hamburger.svg" alt="">
+               </div>
+              </li>
+
+              <!-- Hamburger Layout: -->
+              <div class="absolute bg-gray-200 top-0 left-0 w-[50%] h-[100vh] z-20 flex flex-col gap-4 pt-30 hidden">
+                <div class="divider border w-full h-0"></div>
+
+                <div class="newDropsNav text-2xl ml-8">New Drops🔥</div>
+
+                <div class="divider border w-full h-0"></div>
+
+                <div class="flex ml-8">
+                  <div class="text-2xl">Men</div>
+                  <img src="icons/dropDown.svg" alt="" />
+                </div>
+
+                <div class="divider border w-full h-0"></div>
+
+                <div class="flex ml-8">
+                  <div class="text-2xl">Women</div>
+                <img src="icons/dropDown.svg" alt="" />
+                </div>
+                <div class="divider border w-full h-0"></div>
+
+              </div>
           <!-- navLeft -->
-          <li class="navLeft font-semibold text-[16px] w-[30%]">
-            <ul class="flex justify-center items-center gap-[40px]">
-              <li>New Drops 🔥</li>
+          <li class="navLeft font-semibold text-[16px] w-[30%] 
+          max-md:hidden">
+            <ul class="flex justify-center items-center gap-[40px]
+             max-xl:gap-3 max-lg:text-[14px]">
+              <li class="newDropsNav text-nowrap">New Drops🔥</li>
               <li class="flex justify-center items-center">
                 <div>Men</div>
                 <img src="icons/dropDown.svg" alt="" />
@@ -30,18 +64,21 @@
 
           <!-- navCenter -->
           <li>
-            <div class="w-[128px]">
-              <a href="#">
+            <div class="w-[128px] max-xl:w-[100px]">
+              <a class="w-full" href="#">
                 <img class="w-full object-contain" src="images/Logo.png" alt="" />
               </a>
             </div>
           </li>
 
           <!-- navRight -->
-          <li class="w-[30%]">
-            <ul class="flex justify-end items-center gap-[40px]">
-              <li>
-                <div class="w-[28px]">
+          <li class="w-[30%]
+           max-lg:w-[20%]
+           ">
+            <ul class="flex justify-end items-center gap-[40px]
+             max-xl:gap-4">
+              <li class="max-md:hidden">
+                <div class="w-[28px] max-lg:w-[24px]">
                   <img
                     class="w-full object-contain"
                     src="icons/search.svg"
@@ -50,7 +87,7 @@
                 </div>
               </li>
               <li>
-                <div class="w-[24px]">
+                <div class="w-[24px] max-lg:w-5">
                   <img
                     class="w-full object-contain"
                     src="icons/userIcon.svg"
@@ -60,13 +97,14 @@
               </li>
               <li>
                 <div
-                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1"
+                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 max-lg:w-5 max-lg:p-0"
                 >
                   0
                 </div>
               </li>
             </ul>
           </li>
+      
         </ul>
       </nav>
     </header>
@@ -75,7 +113,9 @@
     <main>
       <div class="heroSection w-[92%] mx-auto">
         <div
-          class="upperSection font-bold text-[210.5px] flex justify-between"
+          class="upperSection font-bold text-[210.5px] flex justify-between gap-2
+          
+           max-xl:text-[160px] max-lg:text-[120px] max-md:text-[100px] max-sm:text-[60px] "
         >
           <div class="text-[#232321]">DO</div>
           <div class="text-[#232321]">IT</div>
@@ -83,16 +123,31 @@
         </div>
         <!-- Hero_LowerSection -->
         <div
-          class="lowerSection bg-[url('images/heroSection_img1.png')] bg-center bg-contain bg-no-repeat h-[750px] flex justify-start items-end p-[48px] relative"
+          class="lowerSection bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat h-[750px] flex justify-start items-end p-[48px] rounded-[64px] relative 
+          max-lg:p-[30px] max-lg:rounded-[55px]
+          max-md:p-[20px] max-md:rounded-[24px] max-md:h-[450px]
+          max-[460px]:!h-[382px]"
         >
-          <div class="heroSection_Content">
-            <div class="heading text-white">NIKE AIR MAX</div>
-            <div class="font-normal text-[24px] text-white w-[410px] mb-[24px]">
+          <div class="heroSection_Content
+          max-sm:w-[70%]
+          ">
+            <div class="text-[74px] font-semibold text-white 
+            max-lg:text-[60px]
+            max-md:text-[48px]
+            max-sm:text-[40px]
+            max-[460px]:font-medium max-[460px]:!text-[30px]
+            ">NIKE AIR MAX</div>
+            <div class="font-normal text-[24px] text-white w-[410px] mb-[24px]
+             max-lg:text-[20px]
+             max-md:text-[17px]
+             max-sm:w-full
+             max-[460px]:!text-[14px]">
               Nike introducing the new air max for everyone's comfort
             </div>
             <div>
               <button
-                class="font-medium text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+                class="font-medium text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer
+                max-md:px-7 max-md:py-3 max-md:text-[12px]"
               >
                 SHOP NOW
               </button>
@@ -101,13 +156,20 @@
 
           <!-- Change image -->
           <div
-            class="changeImageContainer flex flex-col gap-[16px] absolute right-[32px] bottom-[32px]"
+            class="changeImageContainer flex flex-col gap-[16px] absolute right-[32px] bottom-[32px]
+            max-md:right-4 max-md:bottom-4"
           >
             <div
-              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat"
+              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat
+              max-md:w-30 max-md:h-30 max-md:rounded-[25px]
+              max-sm:w-26 max-sm:h-26 max-sm:rounded-[18px]
+              max-[500px]:!w-[64px] max-[500px]:!h-[64px] max-[500px]:!rounded-lg max-[500px]:border-1"
             ></div>
             <div
-              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat"
+              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat
+              max-md:w-30 max-md:h-30 max-md:rounded-[25px]
+              max-sm:w-26 max-sm:h-26 max-sm:rounded-[18px]
+              max-[500px]:!w-[64px] max-[500px]:!h-[64px] max-[500px]:!rounded-lg max-[500px]:border-1"
             ></div>
           </div>
         </div>
@@ -116,7 +178,9 @@
       <!-- New Drops -->
       <div class="newDrops w-[92%] mx-auto my-[90px] flex flex-col gap-[32px]">
         <div class="newDrops_Upper flex justify-between items-end">
-          <div class="heading w-[50%]">DON’T MISS OUT NEW DROPS</div>
+          <div class="text-[74px] font-semibold w-[50%]
+          max-xl:text-[55px] max-lg:text-[40px]"
+          >DON’T MISS OUT NEW DROPS</div>
           <div>
             <a href="ListingPage.html">
             <button
@@ -128,83 +192,101 @@
           </div>
         </div>
 
-        <div class="newDrops_Grid grid grid-cols-4 gap-[16px]">
+        <div class="newDrops_Grid grid grid-cols-4 gap-[16px]
+          max-lg:gap-2
+         max-md:grid-cols-2">
           <!-- card1 -->
-          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
-            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
-              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+          <div class="newDrops_Card1 flex flex-col gap-[16px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px]  ">
+              <img class="newDropsCard_img object-contain w-full h-full" src="images/shoesImg.png" alt="" />
             </div>
             
-            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow
+            max-lg:text-[20px]">
               ADIDAS 4DFWD X PARLEY RUNNING SHOES
             </div>
             <div>
               <button
-                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                max-lg:px-4 max-lg:py-3"
               >
-                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]
+                max-lg:text-[12px]">View Product</div>
                 <div class="text-[#FFFFFF]">-</div>
-                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+                <div class="newDropsPrice text-[#FFA52F]
+                max-lg:text-sm">$125</div>
               </button>
             </div>
            
           </div>
           <!-- card2 -->
-          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
-            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
-              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+          <div class="newDrops_Card1 flex flex-col gap-[16px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px]  ">
+              <img class="newDropsCard_img object-contain w-full h-full" src="images/shoesImg.png" alt="" />
             </div>
             
-            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow
+            max-lg:text-[20px]">
               ADIDAS 4DFWD X PARLEY RUNNING SHOES
             </div>
             <div>
               <button
-                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                max-lg:px-4 max-lg:py-3"
               >
-                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]
+                max-lg:text-[12px]">View Product</div>
                 <div class="text-[#FFFFFF]">-</div>
-                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+                <div class="newDropsPrice text-[#FFA52F]
+                max-lg:text-sm">$125</div>
               </button>
             </div>
            
           </div>
           <!-- card3 -->
-          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
-            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
-              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+          <div class="newDrops_Card1 flex flex-col gap-[16px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px]  ">
+              <img class="newDropsCard_img object-contain w-full h-full" src="images/shoesImg.png" alt="" />
             </div>
             
-            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow
+            max-lg:text-[20px]">
               ADIDAS 4DFWD X PARLEY RUNNING SHOES
             </div>
             <div>
               <button
-                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                max-lg:px-4 max-lg:py-3"
               >
-                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]
+                max-lg:text-[12px]">View Product</div>
                 <div class="text-[#FFFFFF]">-</div>
-                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+                <div class="newDropsPrice text-[#FFA52F]
+                max-lg:text-sm">$125</div>
               </button>
             </div>
            
           </div>
           <!-- card4 -->
-          <div class="newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between">
-            <div class="p-[8px] bg-white rounded-[24px] min-h-[340px] ">
-              <img class="newDropsCard_img object-contain" src="images/shoesImg.png" alt="" />
+          <div class="newDrops_Card1 flex flex-col gap-[16px] justify-between">
+            <div class="p-[8px] bg-white rounded-[24px]  ">
+              <img class="newDropsCard_img object-contain w-full h-full" src="images/shoesImg.png" alt="" />
             </div>
             
-            <div class="newDropsTitle font-semibold text-[24px] flex-grow">
+            <div class="newDropsTitle font-semibold text-[24px] flex-grow
+            max-lg:text-[20px]">
               ADIDAS 4DFWD X PARLEY RUNNING SHOES
             </div>
             <div>
               <button
-                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer"
+                class="bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                max-lg:px-4 max-lg:py-3"
               >
-                <div class="text-[#FFFFFF]">View Product</div>
+                <div class="text-[#FFFFFF]
+                max-lg:text-[12px]">View Product</div>
                 <div class="text-[#FFFFFF]">-</div>
-                <div class="newDropsPrice text-[#FFA52F]">$125</div>
+                <div class="newDropsPrice text-[#FFA52F]
+                max-lg:text-sm">$125</div>
               </button>
             </div>
            
@@ -214,11 +296,14 @@
 
       <!-- Categories Section -->
       <div class="categoriesSection_Wrapper bg-[#232321]">
-        <div class="categoriesSection pt-[90px]">
+        <div class="categoriesSection pt-[90px]
+        max-lg:pt-9">
           <div
-            class="catergories_UpperSection flex justify-between items-center w-[92%] mx-[auto] mb-[64px]"
+            class="catergories_UpperSection flex justify-between items-center w-[92%] mx-[auto] mb-[64px]
+            max-lg:mb-9"
           >
-            <div class="heading text-white">CATEGORIES</div>
+            <div class="text-[74px] font-semibold text-white
+            max-xl:text-[55px] max-lg:text-[40px]">CATEGORIES</div>
             <div class="flex gap-[16px]">
               <button
                 class="previousCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer"
@@ -248,15 +333,17 @@
               </div>
               <div class="flex justify-between items-center">
                 <div
-                  class="catergoryLeft_text font-semibold text-[36px] w-[40%] uppercase"
+                  class="catergoryLeft_text font-semibold text-[36px] w-[40%] uppercase
+                  max-xl:text-[30px] max-lg:text-[24px]"
                 >
                   Lifestyle Shoes
                 </div>
                 <div>
                   <button
-                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer"
+                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
+                    max-lg:p-2"
                   >
-                    <img src="icons/gotoIcon.svg" alt="" />
+                    <img class="w-full object-contain" src="icons/gotoIcon.svg" alt="" />
                   </button>
                 </div>
               </div>
@@ -272,15 +359,17 @@
 
               <div class="flex justify-between items-center">
                 <div
-                  class="catergoryRight_text font-semibold text-[36px] w-[40%] uppercase"
+                  class="catergoryRight_text font-semibold text-[36px] w-[40%] uppercase
+                  max-xl:text-[30px] max-lg:text-[24px]"
                 >
                   Basketball Shoes
                 </div>
                 <div>
                   <button
-                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer"
+                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
+                    max-lg:p-2"
                   >
-                    <img src="icons/gotoIcon.svg" alt="" />
+                    <img class="object-contain w-full" src="icons/gotoIcon.svg" alt="" />
                   </button>
                 </div>
               </div>
@@ -291,9 +380,12 @@
 
       <!-- ReviewsSection -->
 
-      <div class="reviewsSection w-[90%] mx-auto my-[128px]">
-        <div class="reviews_Upper flex justify-between items-center mb-[48px]">
-          <div class="heading">REVIEWS</div>
+      <div class="reviewsSection w-[90%] mx-auto my-[128px]
+      max-xl:my-28 max-lg:my-14">
+        <div class="reviews_Upper flex justify-between items-center mb-[48px]
+        max-lg:mb-8">
+          <div class="text-[74px] font-semibold
+          max-xl:text-[55px] max-lg:text-[40px]">REVIEWS</div>
           <div>
             <button
               class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
@@ -306,12 +398,16 @@
         <div class="reviewsSectionCards_Grid grid grid-cols-3 gap-[16.33px]">
           <div class="reviewsSectionCard_1">
             <div
-              class="reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+              class="reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
+              max-xl:p-7 max-lg:p-4
+              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
             >
               <div class="flex gap-3">
                 <div class="title">
-                  <div class="font-semibold text-[24px]">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]">
+                  <div class="font-semibold text-[24px]
+                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]
+                  max-lg:text-sm">
                     I highly recommend shopping from kicks
                   </div>
                 </div>
@@ -338,7 +434,8 @@
               class="reviewSectionCard_1_Lower rounded-br-[32px] rounded-bl-[32px]"
             >
               <img
-                class="rounded-br-[32px] rounded-bl-[32px]"
+                class="rounded-br-[32px] rounded-bl-[32px] w-full
+                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
                 src="images/reviewCardImage.png"
                 alt=""
               />
@@ -347,12 +444,16 @@
 
           <div class="reviewsSectionCard_2">
             <div
-              class="reviewsSectionCard_2_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+              class="reviewsSectionCard_2_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
+              max-xl:p-7 max-lg:p-4 
+              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
             >
               <div class="flex gap-3">
                 <div class="title">
-                  <div class="font-semibold text-[24px]">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]">
+                  <div class="font-semibold text-[24px]
+                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]
+                  max-lg:text-sm">
                     I highly recommend shopping from kicks
                   </div>
                 </div>
@@ -379,7 +480,8 @@
               class="reviewSectionCard_2_Lower rounded-br-[32px] rounded-bl-[32px]"
             >
               <img
-                class="rounded-br-[32px] rounded-bl-[32px]"
+                class="rounded-br-[32px] rounded-bl-[32px] w-full
+                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
                 src="images/reviewCardImage.png"
                 alt=""
               />
@@ -388,12 +490,16 @@
 
           <div class="reviewsSectionCard_3">
             <div
-              class="reviewsSectionCard_3_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white"
+              class="reviewsSectionCard_3_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
+              max-xl:p-7 max-lg:p-4
+              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
             >
               <div class="flex gap-3">
                 <div class="title">
-                  <div class="font-semibold text-[24px]">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]">
+                  <div class="font-semibold text-[24px]
+                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
+                  <div class="text-[16px] font-normal text-[#232321]
+                  max-lg:text-sm">
                     I highly recommend shopping from kicks
                   </div>
                 </div>
@@ -417,10 +523,12 @@
             </div>
 
             <div
-              class="reviewSectionCard_3_Lower rounded-br-[32px] rounded-bl-[32px]"
+              class="reviewSectionCard_3_Lower rounded-br-[32px] rounded-bl-[32px]
+              "
             >
               <img
-                class="rounded-br-[32px] rounded-bl-[32px]"
+                class="rounded-br-[32px] rounded-bl-[32px] w-full
+                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
                 src="images/reviewCardImage.png"
                 alt=""
               />
