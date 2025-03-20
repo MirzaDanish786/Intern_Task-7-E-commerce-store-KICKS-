@@ -135,8 +135,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   let response = await fetch("https://dummyjson.com/products/categories");
   let data = await response.json();
   let selectedCategoriesSet = new Set();
-  console.log(typeof selectedCategoriesSet );
-  
+    // Get the categroy from the URL which was send from the landing page navbar:
+    let urlParams = new URLSearchParams(window.location.search);
+    let landingPage_category = urlParams.get('category');
+
+    // Get the newDrops and show the rating 4 or greater products
+    let newDrops = urlParams.get('newDrops');
+    if(newDrops !== null){
+      filterCategoryData([],4);
+    } 
   const categories = data;
 
   // Some declarations:
@@ -174,8 +181,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   seeAllInput.name = "category";
   seeAllInput.style.width = "20px";
   seeAllInput.style.cursor = "pointer";
-  seeAllInput.checked = true;
-  filterCategoryData([], filterRating);
+  // Check if the landingPage_category is null then checked the seeAll otherwise false
+  seeAllInput.checked = landingPage_category === null;
+
+  // Check if the landing page category is available then fetch it, otherwise fetch the all categories.
+  if(landingPage_category === null){
+    filterCategoryData([], filterRating);
+  }
+  else{
+    selectedCategoriesSet.add(landingPage_category);
+    filterCategoryData([...selectedCategoriesSet], filterRating)
+
+  }
 
   // Add event listener to seeAll:
   seeAllInput.addEventListener("change", function () {
@@ -234,6 +251,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       input.name = "category";
       input.style.width = "20px";
       input.style.cursor = "pointer";
+      // Checked the checkbox according to the landingPage_category.
+      input.checked = landingPage_category === category.slug;
 
       
      
@@ -306,7 +325,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector(".ratingList input[value='0']").checked = true;
 
   // Initial load
-  filterCategoryData([...selectedCategoriesSet], filterRating);
+  // filterCategoryData([...selectedCategoriesSet], filterRating);
 
   // Code of the trending button drop down:
   let trendingBtn = document.querySelector(".trendingBtn");
@@ -350,4 +369,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
 
   })
+
+
 });

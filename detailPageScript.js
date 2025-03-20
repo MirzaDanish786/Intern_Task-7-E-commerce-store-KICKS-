@@ -126,9 +126,14 @@ const fetchSuggestedProducts = async (category) => {
   let data = await response.json();
 
   data.products.forEach((e, index) => {
-    console.log(data.products[index].id);
-    let card = createCard(data.products[index].thumbnail, data.products[index].title, data.products[index].price, data.products[index].id);
-    swiperWrapper.appendChild(card);
+    if(data.products[index].id == item_id){
+      return;
+    }
+    else{
+      console.log(data.products[index].id);
+      let card = createCard(data.products[index].thumbnail, data.products[index].title, data.products[index].price, data.products[index].id);
+      swiperWrapper.appendChild(card);
+    }
   });
 }
 fetchSuggestedProducts(item_category);
