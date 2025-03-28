@@ -103,7 +103,7 @@ function createCard(imageSrc, title, price, id) {
 
   const buttonPrice = document.createElement('div');
   buttonPrice.className = 'newDropsPrice text-[#FFA52F]';
-  buttonPrice.textContent = price;
+  buttonPrice.textContent = `$${price}`;
 
   button.appendChild(buttonText);
   button.appendChild(buttonSeparator);

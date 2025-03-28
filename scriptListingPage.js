@@ -1,62 +1,82 @@
+let paginationArray = [];
+const productsPerPage = 9;
+let currentPage = 0; 
+
+const paginateProducts = (products) => {
+  paginationArray = [];
+  for (let i = 0; i < products.length; i += productsPerPage) {
+    paginationArray.push(products.slice(i, i + productsPerPage));
+  }
+  document.querySelector(".totalPages").innerHTML = paginationArray.length;
+  let arrayOfProducts = paginationArray.flatMap(item=> item);
+  document.querySelector(".totalProducts").innerHTML = arrayOfProducts.length;
+  // console.log("My",arrayOfProducts.length );
+  
+}
+
+const displayPage = (pageIndex) => {
+  let categoryListGrid = document.querySelector(".categoryListGrid");
+  document.querySelector(".currentPage").innerHTML = pageIndex+1;
+  categoryListGrid.innerHTML = '';
+  paginationArray[pageIndex].forEach((product, index) => {
+    let card = createProductCard(product, index);
+    categoryListGrid.append(card);
+  });
+}
+
+
+const handlePaginationButtons = () => {
+  let previousBtn = document.querySelector(".previousBtn");
+  let nextBtn = document.querySelector(".nextBtn");
+
+  previousBtn.addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage -=1;
+      displayPage(currentPage);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < paginationArray.length - 1) {
+      currentPage +=1;
+      displayPage(currentPage);
+
+    }
+  });
+}
+
 async function filterCategoryData(categories, rating = 0) {
   let categoryListGrid = document.querySelector(".categoryListGrid");
   categoryListGrid.innerHTML = '';
 
   let url;
-  let arrayURL= [];
+  let arrayURL = [];
   let arrayPromises = [];
 
-  if(categories.length === 0){
+  if (categories.length === 0) {
     url = `https://dummyjson.com/products?limit=100`;
     let response = await fetch(url);
     let data = await response.json();
-    // console.log(data.products[0].rating );
-    let filteredProducts = data.products.filter(product => product.rating >= rating); 
-    filteredProducts.forEach((product, index)=>{
-      let card = createProductCard(product, index);
-      categoryListGrid.append(card);
-    })
-  }
-  else{
-    arrayURL = categories.map(categroy => `https://dummyjson.com/products/category/${categroy}` );
-    // console.log("URL Array: "+arrayURL );
+    let filteredProducts = data.products.filter(product => product.rating >= rating);
+    console.log("Length",filteredProducts.length );
+    
+    paginateProducts(filteredProducts);
+    // console.log(paginationArray.length );
+    
+    displayPage(currentPage);
+  } else {
+    arrayURL = categories.map(category => `https://dummyjson.com/products/category/${category}`);
     arrayPromises = arrayURL.map(url => fetch(url));
-    // console.log(arrayPromises );
-
     let responses = await Promise.all(arrayPromises);
     let data = await Promise.all(responses.map(response => response.json()));
-    // console.log(data );
-    
     let products = data.flatMap(d => d.products);
-    console.log("Data: ",products );
+    let filteredProducts = products.filter(product => product.rating >= rating);
+    paginateProducts(filteredProducts);
+    console.log(paginationArray.length );
 
-    // FilteredProducts according to rating:
-    let filteredProducts = products.filter(product => product.rating>=rating);
-    console.log(filteredProducts );
-    filteredProducts.forEach((product, index)=>{
-      let card = createProductCard(product, index);
-      categoryListGrid.append(card);
-    })
-    
-    
-    
-        
-    
-
+    currentPage = 0;
+    displayPage(currentPage);
   }
-
-  // url = categories ? `https://dummyjson.com/products/category/${categories}` : `https://dummyjson.com/products?limit=100`;
-  // let response = await fetch(url);
-  
-  // let data = await response.json();
-
-  // let filteredProducts = data.products.filter(product => product.rating >= rating);
-  // // console.log("Filter cards: ",filteredProducts );
-  
-  // filteredProducts.forEach((item, index) => {
-  //   let card = createProductCard(item, index);
-  //   categoryListGrid.appendChild(card);
-  // });
 }
 
 function send_Details_Of_Item(id, category){
@@ -132,6 +152,7 @@ function createProductCard(data, index) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  handlePaginationButtons();
   let response = await fetch("https://dummyjson.com/products/categories");
   let data = await response.json();
   let selectedCategoriesSet = new Set();
@@ -207,8 +228,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (seeAllInput.checked) {
           // filterCategory = "";
           selectedCategoriesSet.clear();
-          // For debuing
-           console.log(typeof selectedCategoriesSet );
 
           filterCategoryData([...selectedCategoriesSet], filterRating);
       }
@@ -274,17 +293,15 @@ document.addEventListener("DOMContentLoaded", async () => {
               // filterCategory = `${input.id}`;
               selectedCategoriesSet.add(input.id);
               // console.log(input.id );
-              console.log(selectedCategoriesSet );
+              // console.log(selectedCategoriesSet );
 
-              // For debuging
-              console.log(typeof selectedCategoriesSet );
 
               
               filterCategoryData([...selectedCategoriesSet], filterRating);
           }
           else if(input.checked == false){
             selectedCategoriesSet.delete(input.id);
-              console.log(selectedCategoriesSet );
+              // console.log(selectedCategoriesSet );
               filterCategoryData([...selectedCategoriesSet], filterRating)
               
               
@@ -297,7 +314,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   let productsCount = document.querySelector(".productsCount");
-  productsCount.innerHTML = `${categories.length} items`;
+  productsCount.innerHTML = `${categories.length} Categories`;
 
   // add event listener to display the categories dropdown
   document.querySelector(".categoryFilter_Heading").addEventListener('click', (e) => {

@@ -73,7 +73,7 @@
       </header>
 
       <!-- Our Products -->
-       <main class="sticky top-0 z-20 h-[100vh] ">
+       <main class="sticky top-0 z-20 ">
         <div class="ourProducts w-[92%] mx-auto  ">
             <div class="ourProductsUpper flex justify-between items-center">
                 <div>
@@ -103,7 +103,10 @@
                 </div>
             </div>
 
-            <div class="categoryWrapper flex h-[80vh] gap-[10px]">
+            <div class="categoryWrapper flex flex-col">
+
+              <!-- div for wrapping fitler and listing cards section in one -->
+              <div class="flex h-[80vh] gap-[10px]">
                 <div class="categoryFilter  w-[25%] flex flex-col gap-6">
                   <div>
                     <div class="categoryFilter_Heading font-semibold text-[20px] flex justify-between items-center cursor-pointer select-none border p-3 rounded-[8px] bg-[#eeeeee]">
@@ -169,7 +172,50 @@
               
                  
                 </div>
-            </div>
+
+                
+              </div>
+
+              <!-- Pagination Section -->
+              <div class="PaginationSection flex gap-3 justify-end items-center py-5">
+                <div class="totalProductsSection flex">
+                  <div class="font-semibold">
+                    Total Products =
+                  </div>
+                  <div class="totalProducts">
+                    122
+                  </div>
+                </div>
+                  <!-- Pages -->
+                    <div class="flex mr-3">
+                      <div class="mr-2 font-semibold">
+                        Pages
+                      </div>
+                    <div class="currentPage font-normal">
+                      3
+                    </div>
+                    <div class="pageDivider">
+                      -
+                    </div>
+                    <div class="totalPages font-normal">
+                      12
+                    </div>
+                    </div>
+
+                    <!-- Buttons -->
+                <div>
+                  <button class="previousBtn flex justify-center item-center text-lg font-semibold bg-[#d1d1d1] px-3 py-2 rounded-lg cursor-pointer hover:bg-[#bdbdbd]">
+                    Previous
+                </button>
+              </div>
+                <div>
+                  <button class="nextBtn flex justify-center item-center text-lg font-semibold bg-[#d1d1d1] px-3 py-2 rounded-lg cursor-pointer hover:bg-[#bdbdbd]">
+                    Next
+                </button>
+              </div>
+
+              </div>
+          </div>
         </div>
        </main>
 

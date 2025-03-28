@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>Kicks e-commerce Website</title>
   </head>
   <body class="bg-gray-200">
@@ -136,7 +140,7 @@
     <main>
       <div class="heroSection w-[92%] mx-auto">
         <div
-          class="upperSection font-bold text-[210.5px] flex justify-between gap-2
+          class="upperSection font-bold text-[210.5px] flex justify-between gap-2 max-w-[1400px] mx-auto
           
            max-xl:text-[160px] max-lg:text-[120px] max-md:text-[100px] max-sm:text-[60px] "
         >
@@ -146,7 +150,7 @@
         </div>
         <!-- Hero_LowerSection -->
         <div
-          class="lowerSection bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat h-[750px] flex justify-start items-end p-[48px] rounded-[64px] relative 
+          class="heroMainSection bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat h-[750px] flex justify-start items-end p-[48px] rounded-[64px] relative 
           max-lg:p-[30px] max-lg:rounded-[55px]
           max-md:p-[20px] max-md:rounded-[24px] max-md:h-[450px]
           max-[460px]:!h-[382px]"
@@ -202,12 +206,16 @@
       <div class="newDrops w-[92%] mx-auto my-[90px] flex flex-col gap-[32px]">
         <div class="newDrops_Upper flex justify-between items-end">
           <div class="text-[74px] font-semibold w-[50%]
-          max-xl:text-[55px] max-lg:text-[40px]"
+          max-xl:text-[55px] 
+          max-lg:text-[40px]
+          max-md:w-[70%]
+          max-sm:text-[30px]"
           >DON’T MISS OUT NEW DROPS</div>
           <div>
             <a href="ListingPage.html">
             <button
-              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer
+              max-sm:px-[24px] max-sm:py-[12px] max-sm:text-[12px]"
             >
             SEE ALL
             </button>
@@ -344,10 +352,15 @@
           <div
             class="catergories_LowerSection ml-[5%] bg-white rounded-tl-[64px] flex"
           >
-            <div
-              class="catergoryLeft w-[50%] px-[48px] py-[30px] rounded-tl-[64px]"
+          <div class="swiper">
+            <div class="swiper-wrapper">
+            <!-- <div
+              class="catergory w-[50%] px-[48px] py-[30px] rounded-tl-[64px]
+              max-lg:p-7
+              max-md:p-5
+              max-sm:p-4"
             >
-              <div class="catergoryLeft_imageContainer w-[80%] mx-auto">
+              <div class="catergory_imageContainer w-[80%] mx-auto">
                 <img
                   class="categoryImage w-full object-contain"
                   src="images/catergoryShoe.png"
@@ -356,23 +369,29 @@
               </div>
               <div class="flex justify-between items-center">
                 <div
-                  class="catergoryLeft_text font-semibold text-[36px] w-[40%] uppercase
-                  max-xl:text-[30px] max-lg:text-[24px]"
+                  class="catergory_text font-semibold text-[36px] w-[40%] uppercase
+                  max-xl:text-[30px]
+                  max-lg:text-[24px]
+                  max-sm:text-[18px]"
                 >
                   Lifestyle Shoes
                 </div>
                 <div>
                   <button
                     class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
-                    max-lg:p-2"
+                    max-lg:p-2
+                    max-sm:w-6"
                   >
                     <img class="w-full object-contain" src="icons/gotoIcon.svg" alt="" />
                   </button>
                 </div>
               </div>
-            </div>
-            <div class="catergoryRight w-[50%] px-[48px] py-[30px]">
-              <div class="catergoryLeft_imageContainer w-[80%] mx-auto">
+            </div> -->
+            <!-- <div class="catergoryRight w-[50%] px-[48px] py-[30px]
+            max-lg:p-7
+            max-md:p-5
+            max-sm:p-4">
+              <div class="catergoryRight_imageContainer w-[80%] mx-auto">
                 <img
                   class="categoryImage w-full object-contain"
                   src=" images/catergoryShoe.png"
@@ -383,20 +402,25 @@
               <div class="flex justify-between items-center">
                 <div
                   class="catergoryRight_text font-semibold text-[36px] w-[40%] uppercase
-                  max-xl:text-[30px] max-lg:text-[24px]"
+                  max-xl:text-[30px]
+                  max-lg:text-[24px]
+                  max-sm:text-[18px]"
                 >
                   Basketball Shoes
                 </div>
                 <div>
                   <button
                     class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
-                    max-lg:p-2"
+                    max-lg:p-2
+                    max-sm:w-6"
                   >
                     <img class="object-contain w-full" src="icons/gotoIcon.svg" alt="" />
                   </button>
                 </div>
               </div>
+            </div> -->
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -561,5 +585,24 @@
       </div>
     </main>
     <script src="script.js"></script>
+
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <script>
+        const swiper = new Swiper(".swiper", {
+          slidesPerView: 2, // Show 4 cards at a time
+          spaceBetween: 20, // Space between cards
+          slidesPerGroup: 2, // Move 4 cards at a time
+          navigation: {
+            nextEl: ".nextCat",
+            prevEl: ".previousCat",
+          },
+          breakpoints: {
+            768: { slidesPerView: 2, slidesPerGroup: 2 }, 
+            1024: { slidesPerView: 2, slidesPerGroup: 2 }, 
+          }
+        });
+      </script>
   </body>
 </html>
