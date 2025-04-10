@@ -45,6 +45,18 @@ const handlePaginationButtons = () => {
   });
 }
 
+
+// Functions for handle loading animation:
+      // Show loading
+      function showLoading() {
+        document.getElementById("loadingOverlay").classList.remove("hidden");
+      }
+    
+      // Hide loading
+      function hideLoading() {
+        document.getElementById("loadingOverlay").classList.add("hidden");
+      }
+
 async function filterCategoryData(categories, rating = 0) {
   let categoryListGrid = document.querySelector(".categoryListGrid");
   categoryListGrid.innerHTML = '';
@@ -54,23 +66,30 @@ async function filterCategoryData(categories, rating = 0) {
   let arrayPromises = [];
 
   if (categories.length === 0) {
+    showLoading();
     url = `https://dummyjson.com/products?limit=100`;
     let response = await fetch(url);
     let data = await response.json();
     let filteredProducts = data.products.filter(product => product.rating >= rating);
     console.log("Length",filteredProducts.length );
+    hideLoading();
     
     paginateProducts(filteredProducts);
     // console.log(paginationArray.length );
     
     displayPage(currentPage);
   } else {
+    // Loading Animation:
+    showLoading()
     arrayURL = categories.map(category => `https://dummyjson.com/products/category/${category}`);
     arrayPromises = arrayURL.map(url => fetch(url));
     let responses = await Promise.all(arrayPromises);
     let data = await Promise.all(responses.map(response => response.json()));
     let products = data.flatMap(d => d.products);
     let filteredProducts = products.filter(product => product.rating >= rating);
+
+    hideLoading()
+
     paginateProducts(filteredProducts);
     console.log(paginationArray.length );
 
@@ -85,11 +104,11 @@ function send_Details_Of_Item(id, category){
 
 function createProductCard(data, index) {
   let card = document.createElement("div");
-  card.className = "categoryListGrid_Cards flex flex-col gap-[16px] min-h-[500px] justify-between";
+  card.className = "categoryListGrid_Cards flex flex-col gap-[16px] justify-between";
     
 
   let imgContainer = document.createElement("div");
-  imgContainer.className = "p-[8px] bg-white rounded-[24px] min-h-[340px] flex item-center justify-center";
+  imgContainer.className = "p-[8px] bg-white rounded-[24px] flex item-center justify-center max-lg:rounded-[18px]";
 
   let img = document.createElement("img");
   img.className = "categoryListGrid_Cards_img object-contain";
@@ -99,7 +118,7 @@ function createProductCard(data, index) {
 
   // Title
   let title = document.createElement("div");
-  title.className = "categoryListGrid_Cards_Title font-semibold text-[24px] flex-grow";
+  title.className = "categoryListGrid_Cards_Title font-semibold text-[24px] flex-grow max-lg:text-[18px]" ;
   // To make sure the title is display only two lines:
   title.style.display = "-webkit-box";
   title.style.webkitLineClamp = "2";  // Limit to 2 lines
@@ -123,18 +142,18 @@ function createProductCard(data, index) {
 
   })
 
-  button.className = "bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer";
+  button.className = "bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0";
 
   let buttonText = document.createElement("div");
-  buttonText.className = "text-[#FFFFFF]";
+  buttonText.className = "text-[#FFFFFF] max-lg:text-[12px]";
   buttonText.textContent = "View Product";
 
   let separator = document.createElement("div");
-  separator.className = "text-[#FFFFFF]";
+  separator.className = "text-[#FFFFFF] max-lg:text-[12px]";
   separator.textContent = "-";
 
   let price = document.createElement("div");
-  price.className = "categoryListGrid_Cards_Price text-[#FFA52F]";
+  price.className = "categoryListGrid_Cards_Price text-[#FFA52F] max-lg:text-[12px]";
   price.textContent = `$${data.price}`; 
 
   // Append elements
@@ -177,24 +196,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   seeAllDiv.style.display = "flex";
   seeAllDiv.style.gap = "20px";
   seeAllDiv.style.cursor = "pointer";
-
+  seeAllDiv.className = "max-xl:!gap-[10px] max-lg:!line-clamp-1";
+  
   seeAllDiv.addEventListener('mouseenter',(e)=>{
     seeAllDiv.classList.add("bg-gray-300");
     seeAllDiv.classList.add("px-[8px]");
-
+    
   })
   seeAllDiv.addEventListener('mouseleave',(e)=>{
     seeAllDiv.classList.remove("bg-gray-300")
     seeAllDiv.classList.remove("px-[8px]");
-
+    
   })
-
+  
   const seeAllLabel = document.createElement("label");
   seeAllLabel.setAttribute("for", "see-all");
   seeAllLabel.textContent = "See All";
   seeAllLabel.style.fontSize = "20px";
   seeAllLabel.style.cursor = "pointer";
   seeAllLabel.classList.add("w-full");
+  // For responsiveness:
+  seeAllLabel.className = "max-lg:!text-[16px] max-lg:!font-semibold"
 
   const seeAllInput = document.createElement("input");
   seeAllInput.type = "checkbox";
@@ -254,6 +276,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       div.style.display = "flex";
       div.style.gap = "20px";
       div.style.cursor = "pointer";
+      div.className = "max-xl:!gap-[10px] max-lg:!line-clamp-1";
 
       const label = document.createElement("label");
       label.setAttribute("for", category.slug);
@@ -263,6 +286,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       
       label.style.fontSize = "20px";
       label.style.cursor = "pointer";
+      label.className = "max-lg:!text-[16px] max-lg:!font-semibold ";
 
       const input = document.createElement("input");
       input.type = "checkbox";
@@ -292,6 +316,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           if (input.checked) {
               // filterCategory = `${input.id}`;
               selectedCategoriesSet.add(input.id);
+              setTimeout(() => {
+                input.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              }, 1000);
+              
               // console.log(input.id );
               // console.log(selectedCategoriesSet );
 
@@ -346,19 +374,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Code of the trending button drop down:
   let trendingBtn = document.querySelector(".trendingBtn");
+  let trendingBtnText = document.querySelector('.trendingBtnText');
   trendingBtn.addEventListener('click',()=>{
     let trendingDropDown = document.querySelector(".trendingDropDown");
     trendingDropDown.classList.toggle("hidden");
     document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
   })
 
+  // Declaeratoin of options:
   let mostTrending = document.querySelector(".mostTrending");
   let hotProducts = document.querySelector(".hotProducts");
+  let noneOfAbove = document.querySelector('.noneOfAbove');
 
   mostTrending.addEventListener('mouseenter',(e)=>{
     mostTrending.classList.add("bg-gray-300");
-    
-    
   })
   mostTrending.addEventListener('mouseleave',(e)=>{
     mostTrending.classList.remove("bg-gray-300")
@@ -378,14 +407,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     filterCategoryData([...selectedCategoriesSet], 4);
     document.querySelector(".trendingDropDown").classList.add("hidden")
     document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
+    trendingBtnText.textContent = "Most Trending";
 
   })
   hotProducts.addEventListener('click',()=>{
     filterCategoryData([...selectedCategoriesSet], 3);
     document.querySelector(".trendingDropDown").classList.add("hidden")
     document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180")
+    trendingBtnText.textContent = "Hot Products"
 
   })
+  noneOfAbove.addEventListener('click',()=>{
+    filterCategoryData([...selectedCategoriesSet], 0);
+    document.querySelector(".trendingDropDown").classList.add("hidden")
+    document.querySelector(".trendingDropDownImage").classList.toggle("rotate-180");
+    trendingBtnText.textContent = "Trending Options"
+  })
+
+  noneOfAbove.addEventListener('mouseenter',(e)=>{
+    noneOfAbove.classList.add("bg-gray-300");
+    
+  })
+  noneOfAbove.addEventListener('mouseleave',(e)=>{
+    noneOfAbove.classList.remove("bg-gray-300")
+    
+  })
+
+
 
 
 });

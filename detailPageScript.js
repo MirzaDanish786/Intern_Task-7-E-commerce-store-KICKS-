@@ -4,12 +4,25 @@ const item_category = urlParams.get('category');
 console.log(item_id);
 console.log(item_category);
 
+// Function for handling Loading Animtion:
+      // Show loading
+      function showLoading() {
+        document.getElementById("loadingOverlay").classList.remove("hidden");
+      }
+    
+      // Hide loading
+      function hideLoading() {
+        document.getElementById("loadingOverlay").classList.add("hidden");
+      }
+
+
 const fetchDetails = async (category, id) => {
+  showLoading();
   let url = category ? `https://dummyjson.com/products/category/${category}` : `https://dummyjson.com/products?limit=100`;
   let response = await fetch(url);
   let data = await response.json();
+  hideLoading();
 
-  // Check if the products array is available
   if (!data.products) {
     console.error("No products found for the given category");
     return;
@@ -130,10 +143,11 @@ const fetchSuggestedProducts = async (category) => {
       return;
     }
     else{
-      console.log(data.products[index].id);
+      // console.log(data.products[index].id);
       let card = createCard(data.products[index].thumbnail, data.products[index].title, data.products[index].price, data.products[index].id);
       swiperWrapper.appendChild(card);
     }
   });
 }
 fetchSuggestedProducts(item_category);
+

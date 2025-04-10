@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -12,44 +12,137 @@
     <title>Product Details</title>
   </head>
   <body class="bg-gray-200">
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50 hidden">
+  <div class="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+</div>
+
+
     <header>
       <nav
-        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px]"
+        class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px] 
+        max-xl:px-10 max-xl:py-6
+        max-lg:px-5"
       >
-        <ul class="flex justify-between">
-          <!-- navLeft -->
-          <li class="navLeft font-semibold text-[16px] w-[30%]">
-            <ul class="flex justify-center items-center gap-[40px]">
-              <li>New Drops 🔥</li>
-              <li class="flex justify-center items-center">
-                <div>Men</div>
-                <img src="icons/dropDown.svg" alt="" />
+        <ul class="flex justify-between ">
+              <!-- Hamburger Icon: -->
+              <li class="hamburgerSection hidden
+              max-md:block">
+               <div class="hamburgerBtn w-6">
+                 <img class="w-full object-contain" src="icons/hamburger.svg" alt="">
+               </div>
               </li>
-              <li class="flex justify-center items-center">
-                <div>Women</div>
-                <img src="icons/dropDown.svg" alt="" />
+
+              <!-- Hamburger Layout: -->
+              <div class="hamburgerLayout absolute bg-gray-200 top-0 -left-full transition-all duration-300 w-[50%] h-[100vh] z-20 flex-col gap-4 pt-30 flex">
+
+                <div class="cancelBtn absolute right-5 top-5 p-2 bg-[#eeeeee] rounded-full">
+                  <img src="icons/cancel.svg" alt="">
+                </div>
+                <div class="divider border w-full h-0"></div>
+
+                <div class="newDropsNav text-xl ml-8"><a class="" href="ListingPage.html?newDrops=newDrops">New Drops🔥</a></div>
+
+                <div class="divider border w-full h-0"></div>
+
+                <div class="flex ml-8">
+                  <li class="relative cursor-pointer w-full">
+                    <div class="hamburgerMenNav flex  items-center">
+                      <div class="text-xl">Men</div>
+                      <img class="hamburgerMenDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                    </div>
+                        <!-- Men Drop down -->
+                          <div class="hamburgerMenDropDown bg-gray-200 p-1 rounded-lg hidden">
+                          <ul>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shirts</li>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shoes</li>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Watches</li>
+                          </ul>
+                        </div>
+                  </li>
+                </div>
+
+                <div class="divider border w-full h-0"></div>
+
+                <div class="flex ml-8">
+                  <li class=" relative cursor-pointer w-full">
+                    <div class="hamburgerWomenNav flex items-center">
+                      <div class="text-xl">Women</div>
+                      <img class="hamburgerWomenDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                    </div>
+                    <!-- Women Drop down -->
+                    <div class="hamburgerWomenDropDown bg-gray-200 p-1 rounded-lg shadow-lg hidden">
+                      <ul>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Bags</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Dresses</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Jewellery</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Shoes</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Watches</li>
+                      </ul>
+                      </div>
+                  </li>
+                </div>
+                <div class="divider border w-full h-0"></div>
+
+              </div>
+          <!-- navLeft -->
+          <li class="navLeft font-semibold text-[16px] w-[30%] 
+          max-md:hidden">
+            <ul class="flex justify-center items-center gap-[40px]
+             max-xl:gap-3 max-lg:text-[14px]">
+              <li class="newDropsNav text-nowrap cursor-pointer"><a class="" href="ListingPage.html?newDrops=newDrops">New Drops🔥</a></li>
+              <li class="relative cursor-pointer">
+                <div class="menNav flex justify-center items-center">
+                  <div>Men</div>
+                  <img class="menDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                </div>
+                    <!-- Men Drop down -->
+                      <div class="menDropDown bg-gray-200 absolute top-[100%] w-40 p-1 rounded-lg shadow-lg hidden">
+                      <ul>
+                        <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shirts</li>
+                        <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shoes</li>
+                        <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Watches</li>
+                      </ul>
+                    </div>
+              </li>
+
+              <li class=" relative cursor-pointer">
+                <div class="womenNav flex justify-center items-center">
+                  <div>Women</div>
+                  <img class="womenDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                </div>
+                <!-- Women Drop down -->
+                <div class="womenDropDown bg-gray-200 absolute top-[100%] w-40 p-1 rounded-lg shadow-lg hidden">
+                  <ul>
+                    <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Bags</li>
+                    <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Dresses</li>
+                    <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Jewellery</li>
+                    <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Shoes</li>
+                    <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Watches</li>
+                  </ul>
+                  </div>
               </li>
             </ul>
           </li>
 
           <!-- navCenter -->
           <li>
-            <div class="w-[128px]">
-              <a href="LandingPage.html">
-                <img
-                  class="w-full object-contain"
-                  src="images/Logo.png"
-                  alt=""
-                />
+            <div class="w-[128px] max-xl:w-[100px]">
+              <a class="w-full" href="LandingPage.html">
+                <img class="w-full object-contain" src="images/Logo.png" alt="" />
               </a>
             </div>
           </li>
 
           <!-- navRight -->
-          <li class="w-[30%]">
-            <ul class="flex justify-end items-center gap-[40px]">
-              <li>
-                <div class="w-[28px]">
+          <li class="w-[30%]
+           max-lg:w-[20%]
+           ">
+            <ul class="flex justify-end items-center gap-[40px]
+             max-xl:gap-4">
+              <li class="max-md:hidden">
+                <div class="w-[28px] max-lg:w-[24px]">
                   <img
                     class="w-full object-contain"
                     src="icons/search.svg"
@@ -58,7 +151,7 @@
                 </div>
               </li>
               <li>
-                <div class="w-[24px]">
+                <div class="w-[24px] max-lg:w-5">
                   <img
                     class="w-full object-contain"
                     src="icons/userIcon.svg"
@@ -68,13 +161,14 @@
               </li>
               <li>
                 <div
-                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1"
+                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 max-lg:w-5 max-lg:p-0"
                 >
                   0
                 </div>
               </li>
             </ul>
           </li>
+      
         </ul>
       </nav>
     </header>
@@ -172,7 +266,7 @@
 
         <!-- Swiper Container -->
 
-        <div class="w-full mx-auto ">
+        <div class="w-full mx-auto">
           <div class="swiper">
             <div class="swiper-wrapper">
               <!-- Cards -->
@@ -183,6 +277,7 @@
       </div>
     </main>
     <script src="detailPageScript.js"></script>
+    <script src="navbar.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

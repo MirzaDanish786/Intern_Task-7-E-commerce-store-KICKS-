@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -12,6 +12,13 @@
     <title>Kicks e-commerce Website</title>
   </head>
   <body class="bg-gray-200">
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50 hidden">
+  <div class="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+</div>
+
+
     <header>
       <nav
         class="bg-[#FAFAFA] w-[92%] mx-auto px-[60px] py-[32px] my-[32px] rounded-[24px] 
@@ -22,29 +29,59 @@
               <!-- Hamburger Icon: -->
               <li class="hamburgerSection hidden
               max-md:block">
-               <div class="w-6">
+               <div class="hamburgerBtn w-6">
                  <img class="w-full object-contain" src="icons/hamburger.svg" alt="">
                </div>
               </li>
 
               <!-- Hamburger Layout: -->
-              <div class="absolute bg-gray-200 top-0 left-0 w-[50%] h-[100vh] z-20 flex flex-col gap-4 pt-30 hidden">
+              <div class="hamburgerLayout absolute bg-gray-200 top-0 -left-full transition-all duration-300 w-[50%] h-[100vh] z-20 flex-col gap-4 pt-30 flex">
+
+                <div class="cancelBtn absolute right-5 top-5 p-2 bg-[#eeeeee] rounded-full">
+                  <img src="icons/cancel.svg" alt="">
+                </div>
                 <div class="divider border w-full h-0"></div>
 
-                <div class="newDropsNav text-2xl ml-8">New Drops🔥</div>
+                <div class="newDropsNav text-xl ml-8"><a class="" href="ListingPage.html?newDrops=newDrops">New Drops🔥</a></div>
 
                 <div class="divider border w-full h-0"></div>
 
                 <div class="flex ml-8">
-                  <div class="text-2xl">Men</div>
-                  <img src="icons/dropDown.svg" alt="" />
+                  <li class="relative cursor-pointer w-full">
+                    <div class="hamburgerMenNav flex  items-center">
+                      <div class="text-xl">Men</div>
+                      <img class="hamburgerMenDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                    </div>
+                        <!-- Men Drop down -->
+                          <div class="hamburgerMenDropDown bg-gray-200 p-1 rounded-lg hidden">
+                          <ul>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shirts</li>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Shoes</li>
+                            <li class="menDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Mens Watches</li>
+                          </ul>
+                        </div>
+                  </li>
                 </div>
 
                 <div class="divider border w-full h-0"></div>
 
                 <div class="flex ml-8">
-                  <div class="text-2xl">Women</div>
-                <img src="icons/dropDown.svg" alt="" />
+                  <li class=" relative cursor-pointer w-full">
+                    <div class="hamburgerWomenNav flex items-center">
+                      <div class="text-xl">Women</div>
+                      <img class="hamburgerWomenDropDownImage transition-all duration-150" src="icons/dropDown.svg" alt="" />
+                    </div>
+                    <!-- Women Drop down -->
+                    <div class="hamburgerWomenDropDown bg-gray-200 p-1 rounded-lg shadow-lg hidden">
+                      <ul>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Bags</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Dresses</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Jewellery</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Shoes</li>
+                        <li class="womenDropDownList hover:bg-gray-300 px-1 rounded-lg font-medium">Womens Watches</li>
+                      </ul>
+                      </div>
+                  </li>
                 </div>
                 <div class="divider border w-full h-0"></div>
 
@@ -92,7 +129,7 @@
           <!-- navCenter -->
           <li>
             <div class="w-[128px] max-xl:w-[100px]">
-              <a class="w-full" href="#">
+              <a class="w-full" href="LandingPage.html">
                 <img class="w-full object-contain" src="images/Logo.png" alt="" />
               </a>
             </div>
@@ -150,30 +187,29 @@
         </div>
         <!-- Hero_LowerSection -->
         <div
-          class="heroMainSection bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat h-[750px] flex justify-start items-end p-[48px] rounded-[64px] relative 
+          class="heroMainSection bg-[#ebeef0]  bg-center bg-contain bg-no-repeat h-[750px] flex justify-start items-end p-[48px] rounded-[64px] relative 
           max-lg:p-[30px] max-lg:rounded-[55px]
           max-md:p-[20px] max-md:rounded-[24px] max-md:h-[450px]
           max-[460px]:!h-[382px]"
         >
-          <div class="heroSection_Content
-          max-sm:w-[70%]
+          <div class="heroSection_Content w-[60%]
           ">
-            <div class="text-[74px] font-semibold text-white 
+            <div class="heroSectionTitle text-[74px] font-semibold text-white leading-none line-clamp-3
             max-lg:text-[60px]
             max-md:text-[48px]
             max-sm:text-[40px]
-            max-[460px]:font-medium max-[460px]:!text-[30px]
+            max-[460px]:font-medium max-[460px]:!text-[30px] max-[460px]:line-clamp-2
             ">NIKE AIR MAX</div>
-            <div class="font-normal text-[24px] text-white w-[410px] mb-[24px]
+            <div class="heroSectionDescription font-normal text-[24px] text-white w-[410px] mb-[24px]
              max-lg:text-[20px]
              max-md:text-[17px]
-             max-sm:w-full
+             max-sm:w-full max-sm:mb-1
              max-[460px]:!text-[14px]">
-              Nike introducing the new air max for everyone's comfort
+             We handpicked this just for you. Elevate your experience today!
             </div>
             <div>
               <button
-                class="font-medium text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer
+                class="heroShopNowBtn font-medium text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer hover:bg-black
                 max-md:px-7 max-md:py-3 max-md:text-[12px]"
               >
                 SHOP NOW
@@ -187,13 +223,13 @@
             max-md:right-4 max-md:bottom-4"
           >
             <div
-              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat
+              class="hero_image_2 w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat cursor-pointer
               max-md:w-30 max-md:h-30 max-md:rounded-[25px]
               max-sm:w-26 max-sm:h-26 max-sm:rounded-[18px]
               max-[500px]:!w-[64px] max-[500px]:!h-[64px] max-[500px]:!rounded-lg max-[500px]:border-1"
             ></div>
             <div
-              class="w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat
+              class="hero_image_3 w-[160px] h-[160px] border-3 border-[#E7E7E3] rounded-[32px] bg-[url('images/heroSection_img1.png')] bg-center bg-cover bg-no-repeat cursor-pointer
               max-md:w-30 max-md:h-30 max-md:rounded-[25px]
               max-sm:w-26 max-sm:h-26 max-sm:rounded-[18px]
               max-[500px]:!w-[64px] max-[500px]:!h-[64px] max-[500px]:!rounded-lg max-[500px]:border-1"
@@ -214,8 +250,8 @@
           <div>
             <a href="ListingPage.html">
             <button
-              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer
-              max-sm:px-[24px] max-sm:py-[12px] max-sm:text-[12px]"
+              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer hover:bg-black
+              max-sm:px-[24px] max-sm:py-[12px] max-sm:text-[12px] "
             >
             SEE ALL
             </button>
@@ -238,7 +274,7 @@
             </div>
             <div>
               <button
-                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer hover:bg-black
                 max-lg:px-4 max-lg:py-3"
               >
                 <div class="text-[#FFFFFF]
@@ -262,7 +298,7 @@
             </div>
             <div>
               <button
-                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer hover:bg-black
                 max-lg:px-4 max-lg:py-3"
               >
                 <div class="text-[#FFFFFF]
@@ -286,7 +322,7 @@
             </div>
             <div>
               <button
-                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer hover:bg-black
                 max-lg:px-4 max-lg:py-3"
               >
                 <div class="text-[#FFFFFF]
@@ -310,7 +346,7 @@
             </div>
             <div>
               <button
-                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer
+                class="productDetailBtn bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer hover:bg-black
                 max-lg:px-4 max-lg:py-3"
               >
                 <div class="text-[#FFFFFF]
@@ -328,21 +364,27 @@
       <!-- Categories Section -->
       <div class="categoriesSection_Wrapper bg-[#232321]">
         <div class="categoriesSection pt-[90px]
-        max-lg:pt-9">
+        max-lg:pt-9
+        max-md:h-[800px] max-md:pt-6">
           <div
             class="catergories_UpperSection flex justify-between items-center w-[92%] mx-[auto] mb-[64px]
-            max-lg:mb-9"
+            max-lg:mb-9
+            max-md:mb-6"
           >
             <div class="text-[74px] font-semibold text-white
-            max-xl:text-[55px] max-lg:text-[40px]">CATEGORIES</div>
+            max-xl:text-[55px] 
+            max-lg:text-[40px]
+            max-sm:text-[35px]">CATEGORIES</div>
             <div class="flex gap-[16px]">
               <button
-                class="previousCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer"
+                class="previousCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer hover:bg-gray-500
+                max-sm:px-[14px] max-sm:py-3"
               >
                 <img src="icons/previousIcon.svg" alt="" />
               </button>
               <button
-                class="nextCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer"
+                class="nextCat px-[17.18px] py-[15.5px] bg-[#E7E7E3] rounded-[8px] cursor-pointer hover:bg-gray-500
+                max-sm:px-[14px] max-sm:py-3"
               >
                 <img src="icons/nextIcon.svg" alt="" />
               </button>
@@ -352,73 +394,10 @@
           <div
             class="catergories_LowerSection ml-[5%] bg-white rounded-tl-[64px] flex"
           >
-          <div class="swiper">
-            <div class="swiper-wrapper">
-            <!-- <div
-              class="catergory w-[50%] px-[48px] py-[30px] rounded-tl-[64px]
-              max-lg:p-7
-              max-md:p-5
-              max-sm:p-4"
-            >
-              <div class="catergory_imageContainer w-[80%] mx-auto">
-                <img
-                  class="categoryImage w-full object-contain"
-                  src="images/catergoryShoe.png"
-                  alt=""
-                />
-              </div>
-              <div class="flex justify-between items-center">
-                <div
-                  class="catergory_text font-semibold text-[36px] w-[40%] uppercase
-                  max-xl:text-[30px]
-                  max-lg:text-[24px]
-                  max-sm:text-[18px]"
-                >
-                  Lifestyle Shoes
-                </div>
-                <div>
-                  <button
-                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
-                    max-lg:p-2
-                    max-sm:w-6"
-                  >
-                    <img class="w-full object-contain" src="icons/gotoIcon.svg" alt="" />
-                  </button>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="catergoryRight w-[50%] px-[48px] py-[30px]
-            max-lg:p-7
-            max-md:p-5
-            max-sm:p-4">
-              <div class="catergoryRight_imageContainer w-[80%] mx-auto">
-                <img
-                  class="categoryImage w-full object-contain"
-                  src=" images/catergoryShoe.png"
-                  alt=""
-                />
-              </div>
-
-              <div class="flex justify-between items-center">
-                <div
-                  class="catergoryRight_text font-semibold text-[36px] w-[40%] uppercase
-                  max-xl:text-[30px]
-                  max-lg:text-[24px]
-                  max-sm:text-[18px]"
-                >
-                  Basketball Shoes
-                </div>
-                <div>
-                  <button
-                    class="bg-[#232321] p-[12px] rounded-[8px] cursor-pointer
-                    max-lg:p-2
-                    max-sm:w-6"
-                  >
-                    <img class="object-contain w-full" src="icons/gotoIcon.svg" alt="" />
-                  </button>
-                </div>
-              </div>
-            </div> -->
+          <div class="swiper swiperCategories
+          max-md:h-[675px]">
+            <div class="swiper-wrapper swiperWrapperCategory">
+            <!-- Cards are appear here: -->
             </div>
           </div>
           </div>
@@ -432,177 +411,86 @@
         <div class="reviews_Upper flex justify-between items-center mb-[48px]
         max-lg:mb-8">
           <div class="text-[74px] font-semibold
-          max-xl:text-[55px] max-lg:text-[40px]">REVIEWS</div>
+          max-xl:text-[55px] 
+            max-lg:text-[40px]
+            max-sm:text-[35px]">REVIEWS</div>
           <div>
             <button
-              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer"
+              class="font-normal text-[14px] text-white bg-[#4A69E2] py-[15.5px] px-[32px] rounded-[8px] cursor-pointer hover:bg-black
+              max-sm:px-[24px] max-sm:py-[12px] max-sm:text-[12px]"
             >
               SEE ALL
             </button>
           </div>
         </div>
 
-        <div class="reviewsSectionCards_Grid grid grid-cols-3 gap-[16.33px]">
-          <div class="reviewsSectionCard_1">
-            <div
-              class="reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
-              max-xl:p-7 max-lg:p-4
-              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
-            >
-              <div class="flex gap-3">
-                <div class="title">
-                  <div class="font-semibold text-[24px]
-                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]
-                  max-lg:text-sm">
-                    I highly recommend shopping from kicks
-                  </div>
-                </div>
-                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
-                  <img
-                    class="w-full object-contain"
-                    src="icons/userIcon.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
+        <div class="reviewsSectionCards_Grid ">
+          <div class="swiper  swiperReviews">
+            <div class="swiperWrapperReviews swiper-wrapper ">
 
-              <div class="stars flex gap-1 items-center">
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div>5.0</div>
-              </div>
-            </div>
-
-            <div
-              class="reviewSectionCard_1_Lower rounded-br-[32px] rounded-bl-[32px]"
-            >
-              <img
-                class="rounded-br-[32px] rounded-bl-[32px] w-full
-                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
-                src="images/reviewCardImage.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div class="reviewsSectionCard_2">
-            <div
-              class="reviewsSectionCard_2_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
-              max-xl:p-7 max-lg:p-4 
-              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
-            >
-              <div class="flex gap-3">
-                <div class="title">
-                  <div class="font-semibold text-[24px]
-                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]
-                  max-lg:text-sm">
-                    I highly recommend shopping from kicks
-                  </div>
-                </div>
-                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
-                  <img
-                    class="w-full object-contain"
-                    src="icons/userIcon.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div class="stars flex gap-1 items-center">
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div>5.0</div>
-              </div>
-            </div>
-
-            <div
-              class="reviewSectionCard_2_Lower rounded-br-[32px] rounded-bl-[32px]"
-            >
-              <img
-                class="rounded-br-[32px] rounded-bl-[32px] w-full
-                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
-                src="images/reviewCardImage.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div class="reviewsSectionCard_3">
-            <div
-              class="reviewsSectionCard_3_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white
-              max-xl:p-7 max-lg:p-4
-              max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl"
-            >
-              <div class="flex gap-3">
-                <div class="title">
-                  <div class="font-semibold text-[24px]
-                  max-xl:text-xl max-lg:text-lg">Good Quality</div>
-                  <div class="text-[16px] font-normal text-[#232321]
-                  max-lg:text-sm">
-                    I highly recommend shopping from kicks
-                  </div>
-                </div>
-                <div class="userDp w-[64px] rounded-[50%] py-[10px]">
-                  <img
-                    class="w-full object-contain"
-                    src="icons/userIcon.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div class="stars flex gap-1 items-center">
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div><img src="icons/star.svg" alt="" /></div>
-                <div>5.0</div>
-              </div>
-            </div>
-
-            <div
-              class="reviewSectionCard_3_Lower rounded-br-[32px] rounded-bl-[32px]
-              "
-            >
-              <img
-                class="rounded-br-[32px] rounded-bl-[32px] w-full
-                max-xl:rounded-bl-3xl max-xl:rounded-br-3xl max-lg:rounded-bl-2xl max-lg:rounded-br-2xl"
-                src="images/reviewCardImage.png"
-                alt=""
-              />
-            </div>
-          </div>
         </div>
+      </div>
+        </div>
+      </div>
       </div>
     </main>
     <script src="script.js"></script>
+    <script src="navbar.js"></script>
 
       <!-- Swiper JS -->
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
       <script>
-        const swiper = new Swiper(".swiper", {
-          slidesPerView: 2, // Show 4 cards at a time
-          spaceBetween: 20, // Space between cards
-          slidesPerGroup: 2, // Move 4 cards at a time
+        document.addEventListener('DOMContentLoaded',()=>{
+
+          // Script for Category Swiper:
+          const swiperCategories = new Swiper(".swiperCategories", {
+          slidesPerView: 2, 
+          spaceBetween: 20, 
+          slidesPerGroup: 2, 
+          direction: "vertical", 
           navigation: {
             nextEl: ".nextCat",
             prevEl: ".previousCat",
           },
+          allowTouchMove: false, 
+          touchStartPreventDefault: false, 
+          freeMode:true,
           breakpoints: {
-            768: { slidesPerView: 2, slidesPerGroup: 2 }, 
-            1024: { slidesPerView: 2, slidesPerGroup: 2 }, 
+            768: { 
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              direction: "horizontal"
+            },
+          
           }
         });
-      </script>
+
+          
+          
+          // Script for review swiper:
+          const swiperReviews = new Swiper(".swiperReviews", {
+            slidesPerView: 1, 
+            spaceBetween: 10, 
+            slidesPerGroup: 1, 
+            loop: true,
+            autoplay: {
+            delay: 2000, 
+            disableOnInteraction: false, 
+          },
+          breakpoints:{
+            650:{slidesPerView: 2, slidesPerGroup: 1},
+            1024:{slidesPerView: 3, slidesPerGroup: 1},
+            
+
+
+          }
+          });
+        })
+        </script>
+      <!-- <script>
+        
+
+      </script> -->
   </body>
 </html>

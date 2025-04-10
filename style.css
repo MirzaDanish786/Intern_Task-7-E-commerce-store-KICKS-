@@ -44,4 +44,18 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.heroSection_Content{
+    padding: 4px;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+}
+.hero_image_2, .hero_image_3{
+    padding: 4px;
+    backdrop-filter: blur(4px);
+}
+.heroSectionTitle, .heroSectionDescription{
+    text-shadow: 2px 2px 2px black;
+}
+.hamburgerActive{
+    box-shadow: 20px 0px 20px 50vw #00000075;
+}
