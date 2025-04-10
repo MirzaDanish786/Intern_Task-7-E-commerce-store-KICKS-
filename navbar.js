@@ -17,8 +17,17 @@
      hamburgerLayout.classList.remove("left-0")
      hamburgerLayout.classList.remove("hamburgerActive");
      body.classList.remove("overflow-hidden")
-
  });
+
+ document.addEventListener('click',(e)=>{
+  const isClickedeInside = hamburgerBtn.contains(e.target) || cancelBtn.contains(e.target) ||hamburgerLayout.contains(e.target) ;
+  if(!isClickedeInside){
+    hamburgerLayout.classList.add("-left-full")
+    hamburgerLayout.classList.remove("left-0")
+    hamburgerLayout.classList.remove("hamburgerActive");
+    body.classList.remove("overflow-hidden")
+  }
+ })
 
  // Code for the navbar:
 const closeNavDropDowns = () =>{

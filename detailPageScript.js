@@ -72,10 +72,10 @@ function createCard(imageSrc, title, price, id) {
   swiperSlide.className = 'swiper-slide';
 
   const cardContainer = document.createElement('div');
-  cardContainer.className = 'newDrops_Card1 flex flex-col gap-[16px] min-h-[500px] justify-between';
+  cardContainer.className = 'newDrops_Card1 flex flex-col gap-[16px] justify-between';
 
   const imageContainer = document.createElement('div');
-  imageContainer.className = 'p-[8px] bg-white rounded-[24px] min-h-[340px] min-w-[280px]';
+  imageContainer.className = 'p-[8px] bg-white rounded-[24px] flex item-center justify-center max-lg:rounded-[18px] ';
 
   const img = document.createElement('img');
   img.className = 'newDropsCard_img object-contain w-full';
@@ -86,14 +86,14 @@ function createCard(imageSrc, title, price, id) {
 
   // Create the title element
   const titleElement = document.createElement('div');
-  titleElement.className = 'newDropsTitle font-semibold text-[24px] flex-grow';
+  titleElement.className = 'newDropsTitle font-semibold text-[24px] flex-grow max-lg:text-[18px]';
   titleElement.textContent = title;
 
   // Create the button container
   const buttonContainer = document.createElement('div');
 
   const button = document.createElement('button');
-  button.className = 'bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer';
+  button.className = 'bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0';
 
   // Event listener to change the item id to show the details:
   button.addEventListener('click', (e) => {
@@ -107,15 +107,15 @@ function createCard(imageSrc, title, price, id) {
 
   // Create the button text elements
   const buttonText = document.createElement('div');
-  buttonText.className = 'text-[#FFFFFF]';
+  buttonText.className = 'text-[#FFFFFF] max-lg:text-[12px]';
   buttonText.textContent = 'View Product';
 
   const buttonSeparator = document.createElement('div');
-  buttonSeparator.className = 'text-[#FFFFFF]';
+  buttonSeparator.className = 'text-[#FFFFFF] max-lg:text-[12px]';
   buttonSeparator.textContent = '-';
 
   const buttonPrice = document.createElement('div');
-  buttonPrice.className = 'newDropsPrice text-[#FFA52F]';
+  buttonPrice.className = 'newDropsPrice text-[#FFA52F] max-lg:text-[12px]';
   buttonPrice.textContent = `$${price}`;
 
   button.appendChild(buttonText);

@@ -35,7 +35,7 @@
               </li>
 
               <!-- Hamburger Layout: -->
-              <div class="hamburgerLayout absolute bg-gray-200 top-0 -left-full transition-all duration-300 w-[50%] h-[100vh] z-20 flex-col gap-4 pt-30 flex">
+              <div class="hamburgerLayout absolute bg-gray-200 top-0 -left-full transition-all duration-300 w-[70%] h-[100vh] z-20 flex-col gap-4 pt-30 flex">
 
                 <div class="cancelBtn absolute right-5 top-5 p-2 bg-[#eeeeee] rounded-full">
                   <img src="icons/cancel.svg" alt="">
@@ -161,7 +161,7 @@
               </li>
               <li>
                 <div
-                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 max-lg:w-5 max-lg:p-0"
+                  class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 "
                 >
                   0
                 </div>
@@ -175,10 +175,14 @@
 
     <!-- main -->
     <main>
-      <div class="productDetailSection w-[92%] mx-auto flex gap-[16px]">
+      <div class="productDetailSection w-[92%] mx-auto flex gap-[16px]
+      max-md:flex-col">
         <!-- Product image section -->
         <div
-          class="productImageSection w-[65%] flex justify-center items-center bg-white rounded-[48px]"
+          class="productImageSection w-[65%] flex justify-center items-center bg-white rounded-[48px]
+          max-lg:rounded-[35px]
+          max-md:w-full max-md:rounded-[24px]
+          max-sm:rounded-[16px]"
         >
           <div class="productImageContainer w-[60%]">
             <!-- Image appear here: -->
@@ -186,8 +190,10 @@
         </div>
 
         <!-- Product Details Section -->
-        <div class="productDetails w-[35%]">
-          <div class="flex flex-col gap-[16px] mb-[32px]">
+        <div class="productDetails w-[35%]
+        max-md:w-full">
+          <div class="flex flex-col gap-[16px] mb-[32px]
+          max-lg:mb-6 max-lg:gap-0">
             <div>
               <button
                 class="font-medium text-[14px] text-white bg-[#4A69E2] py-[12px] px-[16px] rounded-[12px] cursor-pointer"
@@ -200,7 +206,7 @@
           </div>
 
           <!-- Button container -->
-          <div class="flex flex-col gap-[8px]">
+          <div class="flex flex-col gap-[8px] max-w-[500px]">
             <div class="flex justify-between gap-[8px]">
               <div class="flex w-full">
                 <button
@@ -246,18 +252,24 @@
 
       <!-- SuggestionSection -->
       <div
-        class="suggestionSection w-[92%] mx-auto mt-[128px] flex flex-col gap-[32px]"
+        class="suggestionSection w-[92%] mx-auto mt-[128px] flex flex-col gap-[32px]
+        max-md:mt-12"
       >
         <div class="suggestUpper flex justify-between items-center">
-          <div class="font-semibold text-[48px]">You may also like</div>
-          <div class="flex gap-[16px]">
+          <div class="font-semibold text-[48px]
+          max-lg:text-[38px]
+          max-md:text-[35px] ">You may also like</div>
+          <div class="flex gap-[16px]
+          max-md:gap-2">
             <button
-              class="previousCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]"
+              class="previousCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]
+              max-sm:px-[14px] max-sm:py-3"
             >
               <img class="invert" src="icons/previousIcon.svg" alt="" />
             </button>
             <button
-              class="nextCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]"
+              class="nextCat px-[17.18px] py-[15.5px] bg-[#232321] rounded-[8px] cursor-pointer hover:bg-[#363634]
+              max-sm:px-[14px] max-sm:py-3"
             >
               <img class="invert" src="icons/nextIcon.svg" alt="" />
             </button>
@@ -284,16 +296,16 @@
 
     <script>
       const swiper = new Swiper(".swiper", {
-        slidesPerView: 4, // Show 4 cards at a time
+        slidesPerView: 2, // Show 4 cards at a time
         spaceBetween: 20, // Space between cards
-        slidesPerGroup: 4, // Move 4 cards at a time
+        slidesPerGroup: 1, // Move 4 cards at a time
         navigation: {
           nextEl: ".nextCat",
           prevEl: ".previousCat",
         },
         breakpoints: {
-          768: { slidesPerView: 4, slidesPerGroup: 4 }, 
-          1024: { slidesPerView: 4, slidesPerGroup: 4 }, 
+          768: { slidesPerView: 3, slidesPerGroup: 1 }, 
+          1024: { slidesPerView: 4, slidesPerGroup: 1 }, 
         },
       });
     </script>

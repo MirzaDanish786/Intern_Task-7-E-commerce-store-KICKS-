@@ -31,7 +31,7 @@
             </li>
 
             <!-- Hamburger Layout: -->
-            <div class="hamburgerLayout absolute z-50 bg-gray-200 top-0 -left-full transition-all duration-300 w-[50%] h-[100vh] flex-col gap-4 pt-30 flex">
+            <div class="hamburgerLayout absolute z-50 bg-gray-200 top-0 -left-full transition-all duration-300 w-[70%] h-[100vh] flex-col gap-4 pt-30 flex">
 
               <div class="cancelBtn absolute right-5 top-5 p-2 bg-[#eeeeee] rounded-full">
                 <img src="icons/cancel.svg" alt="">
@@ -157,7 +157,7 @@
             </li>
             <li>
               <div
-                class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 max-lg:w-5 max-lg:p-0"
+                class="bg-[#FFA52F] rounded-[100%] w-[32px] flex justify-center items-center py-1 "
               >
                 0
               </div>
@@ -208,11 +208,14 @@
             <div class="categoryWrapper flex flex-col">
 
               <!-- div for wrapping fitler and listing cards section in one -->
-              <div class="flex h-[80vh] gap-[10px]">
-                <div class="categoryFilter  w-[25%] flex flex-col gap-6">
+              <div class="flex h-[80vh] gap-[10px] 
+              max-md:flex-col max-md:h-auto">
+                <div class="categoryFilter  w-[25%] flex flex-col gap-6
+                max-md:flex-row max-md:w-full max-md:justify-between max-md:sticky max-md:top-0 z-30 max-md:bg-[#eeeeee] max-md:py-3">
                   <div>
                     <div class="categoryFilter_Heading font-semibold text-[20px] flex justify-between items-center cursor-pointer select-none border p-3 rounded-[8px] bg-[#eeeeee] 
-                    max-lg:text-[15px]">
+                    max-lg:text-[15px]
+                    max-md:gap-3">
                       <div>
                         Category Filter
                       </div>
@@ -274,7 +277,8 @@
 
 
                 </div>
-                <div class="categoryListGrid w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit custom-scrollbar">
+                <div class="categoryListGrid w-[75%] grid grid-cols-3 gap-[16px] overflow-auto max-h-fit custom-scrollbar
+                max-md:grid-cols-2 max-md:w-full">
                   <!-- Cards are dynamically appears here -->
               
                  
