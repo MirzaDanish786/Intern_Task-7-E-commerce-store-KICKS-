@@ -10,9 +10,10 @@ const paginateProducts = (products) => {
   document.querySelector(".totalPages").innerHTML = paginationArray.length;
   let arrayOfProducts = paginationArray.flatMap(item=> item);
   document.querySelector(".totalProducts").innerHTML = arrayOfProducts.length;
-  // console.log("My",arrayOfProducts.length );
-  
+  console.log("Pagination lenght",paginationArray.length );
+    
 }
+ 
 
 const displayPage = (pageIndex) => {
   let categoryListGrid = document.querySelector(".categoryListGrid");
@@ -142,7 +143,7 @@ function createProductCard(data, index) {
 
   })
 
-  button.className = "bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0";
+  button.className = "bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer hover:bg-black max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0";
 
   let buttonText = document.createElement("div");
   buttonText.className = "text-[#FFFFFF] max-lg:text-[12px]";
@@ -214,6 +215,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   seeAllLabel.textContent = "See All";
   seeAllLabel.style.fontSize = "20px";
   seeAllLabel.style.cursor = "pointer";
+  seeAllLabel.style.width = "100%";
   seeAllLabel.classList.add("w-full");
   // For responsiveness:
   seeAllLabel.className = "max-lg:!text-[16px] max-lg:!font-semibold"
@@ -286,7 +288,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       
       label.style.fontSize = "20px";
       label.style.cursor = "pointer";
-      label.className = "max-lg:!text-[16px] max-lg:!font-semibold ";
+      label.className = "w-full max-lg:!text-[16px] max-lg:!font-semibold ";
 
       const input = document.createElement("input");
       input.type = "checkbox";

@@ -93,7 +93,7 @@ function createCard(imageSrc, title, price, id) {
   const buttonContainer = document.createElement('div');
 
   const button = document.createElement('button');
-  button.className = 'bg-[#232321] px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0';
+  button.className = 'bg-[#232321] hover:bg-black px-[24px] justify-center w-full py-[15.5px] flex gap-1 rounded-[8px] cursor-pointer max-xl:p-[14px]  max-lg:p-[10px] max-lg:gap-0';
 
   // Event listener to change the item id to show the details:
   button.addEventListener('click', (e) => {

@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
-    <link
+
+    <!-- For swiper -->
+      <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Kicks e-commerce Website</title>
   </head>
   <body class="bg-gray-200">
@@ -40,7 +44,7 @@
                 <div class="cancelBtn absolute right-5 top-5 p-2 bg-[#eeeeee] rounded-full">
                   <img src="icons/cancel.svg" alt="">
                 </div>
-                <div class="divider border w-full h-0"></div>
+                <div class="divider border  w-full h-0"></div>
 
                 <div class="newDropsNav text-xl ml-8"><a class="" href="ListingPage.html?newDrops=newDrops">New Drops🔥</a></div>
 
@@ -369,7 +373,7 @@
       <div class="categoriesSection_Wrapper bg-[#232321]">
         <div class="categoriesSection pt-[90px]
         max-lg:pt-9
-        max-md:h-[800px] max-md:pt-6">
+        max-md:pt-6">
           <div
             class="catergories_UpperSection flex justify-between items-center w-[92%] mx-[auto] mb-[64px]
             max-lg:mb-9
@@ -398,8 +402,7 @@
           <div
             class="catergories_LowerSection ml-[5%] bg-white rounded-tl-[64px] flex"
           >
-          <div class="swiper swiperCategories
-          max-md:h-[675px]">
+          <div class="swiper swiperCategories">
             <div class="swiper-wrapper swiperWrapperCategory">
             <!-- Cards are appear here: -->
             </div>
@@ -430,7 +433,7 @@
 
         <div class="reviewsSectionCards_Grid ">
           <div class="swiper  swiperReviews">
-            <div class="swiperWrapperReviews swiper-wrapper ">
+            <div class=" swiper-wrapper swiperWrapperReviews ">
 
         </div>
       </div>
@@ -442,54 +445,27 @@
     <script src="navbar.js"></script>
 
       <!-- Swiper JS -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
       <script>
-        document.addEventListener('DOMContentLoaded',()=>{
+        document.addEventListener('DOMContentLoaded',function(){
 
           // Script for Category Swiper:
           const swiperCategories = new Swiper(".swiperCategories", {
           slidesPerView: 2, 
           spaceBetween: 20, 
           slidesPerGroup: 2, 
-          direction: "vertical", 
+          // direction: "vertical", 
           navigation: {
             nextEl: ".nextCat",
             prevEl: ".previousCat",
           },
-          allowTouchMove: false, 
-          touchStartPreventDefault: false, 
-          freeMode:true,
-          breakpoints: {
-            768: { 
-              slidesPerView: 2,
-              slidesPerGroup: 2,
-              direction: "horizontal"
-            },
-          
-          }
+         
         });
 
           
           
-          // Script for review swiper:
-          const swiperReviews = new Swiper(".swiperReviews", {
-            slidesPerView: 1, 
-            spaceBetween: 10, 
-            slidesPerGroup: 1, 
-            loop: true,
-            autoplay: {
-            delay: 2000, 
-            disableOnInteraction: false, 
-          },
-          breakpoints:{
-            650:{slidesPerView: 2, slidesPerGroup: 1},
-            1024:{slidesPerView: 3, slidesPerGroup: 1},
-            
-
-
-          }
-          });
+   
         })
         </script>
       <!-- <script>

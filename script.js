@@ -1,22 +1,5 @@
 document.addEventListener('DOMContentLoaded',async()=>{
 
-    // // Code for the hamburger:
-    // let hamburgerBtn = document.querySelector('.hamburgerBtn');
-    // let cancelBtn = document.querySelector('.cancelBtn');
-    // let hamburgerLayout = document.querySelector(".hamburgerLayout");
-
-    
-    // hamburgerBtn.addEventListener("click", ()=>{
-    //     hamburgerLayout.classList.remove("-left-full")
-    //     hamburgerLayout.classList.add("left-0")
-    //     hamburgerLayout.classList.add("hamburgerActive");
-    // });
-    
-    // cancelBtn.addEventListener("click", ()=>{
-    //     hamburgerLayout.classList.add("-left-full")
-    //     hamburgerLayout.classList.remove("left-0")
-    //     hamburgerLayout.classList.remove("hamburgerActive");
-    // });
 
       // Show loading
   function showLoading() {
@@ -98,90 +81,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
     })
 
 
- 
-
-    // const closeNavDropDowns = () =>{
-    //     document.querySelector(".menDropDownImage").classList.remove("rotate-180");
-    //     document.querySelector(".menDropDown").classList.add("hidden");
-    //     document.querySelector(".womenDropDownImage").classList.remove("rotate-180");
-    //     document.querySelector(".womenDropDown").classList.add("hidden")
-    //     isNavDropDownMen = false;
-    //     isNavDropDownWomen = false;
-    // }
-
-    // let isNavDropDownMen = false;
-    // let isNavDropDownWomen = false;
-    // //MenNav drop down:
-    // document.querySelector(".menNav").addEventListener('click',(e)=>{
-    //     if(!isNavDropDownMen){
-    //         closeNavDropDowns();
-    //         document.querySelector(".menDropDownImage").classList.add("rotate-180");
-    //         document.querySelector(".menDropDown").classList.remove("hidden");
-    //         isNavDropDownMen = true;
-    //     }
-    //     else{
-    //       closeNavDropDowns();
-    //     }
-    //     e.stopPropagation();
-    // }) 
-
-    // // Women drop down:
-    // document.querySelector(".womenNav").addEventListener('click',(e)=>{
-    //     if(!isNavDropDownWomen){
-    //         closeNavDropDowns();
-    //         document.querySelector(".womenDropDownImage").classList.add("rotate-180");
-    //         document.querySelector(".womenDropDown").classList.remove("hidden")
-    //         isNavDropDownWomen = true;
-    //     }
-    //     else{
-    //        closeNavDropDowns();
-    //     }
-        
-    //     e.stopPropagation();
-    // })
-
-
-    // // Close the dropdown when click outside the dropdown:
-    // document.addEventListener('click', (e) => {
-    //     if (!e.target.closest('.menNav') && !e.target.closest('.menDropDown')) {
-    //         document.querySelector(".menDropDownImage").classList.remove("rotate-180");
-    //         document.querySelector(".menDropDown").classList.add("hidden");
-    //         isNavDropDownMen = false;
-    //     }
-
-    //     if (!e.target.closest('.womenNav') && !e.target.closest('.womenDropDown')) {
-    //         document.querySelector(".womenDropDownImage").classList.remove("rotate-180");
-    //         document.querySelector(".womenDropDown").classList.add("hidden");
-    //         isNavDropDownWomen = false;
-    //     }
-    // });
-
-    // // Function to send the category to the Listing page to show:
-    // const setURL_Category = (category)=>{
-    //     window.location.href = `ListingPage.html?category=${category}`
-        
-    // }
-
-    // // Get the category name when click on the li and modify the string in the format that parameter API accept:
-    // let menDropDownList = document.querySelectorAll(".menDropDownList");
-    // let womenDropDownList = document.querySelectorAll(".womenDropDownList");
-    // menDropDownList.forEach((category)=>{
-    //     category.addEventListener("click",()=>{
-    //         // console.log(category.textContent );
-    //         let product = (category.textContent).toLowerCase().split(" ").join("-");
-    //         setURL_Category(product);
-    //         // console.log(product );
-    //     })
-    // });
-    // womenDropDownList.forEach((category)=>{
-    //     category.addEventListener("click",()=>{
-    //         // console.log(category.textContent );
-    //         let product = (category.textContent).toLowerCase().split(" ").join("-");
-    //         setURL_Category(product);
-    //         // console.log(product );
-    //     })
-    // });
-
 
 
     // HeroSection images selection Code:
@@ -235,7 +134,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     [currentImages[0], currentImages[1]] = [currentImages[1], currentImages[0]];
     heroMainSection.style.backgroundImage = "url('" + currentImages[0] + "')"
     hero_image_2.style.backgroundImage = "url("+currentImages[1]+")";
-    hero_image_3.style.backgroundImage = "url("+currentImages[2]+")";;
+    hero_image_3.style.backgroundImage = "url("+currentImages[2]+")";
     })
     hero_image_3.addEventListener('click',(e)=>{
     [currentImages[0], currentImages[2]] = [currentImages[2], currentImages[0]];
@@ -243,6 +142,18 @@ document.addEventListener('DOMContentLoaded',async()=>{
     hero_image_2.style.backgroundImage = "url("+currentImages[1]+")";
     hero_image_3.style.backgroundImage = "url("+currentImages[2]+")";
     })
+
+    // Automatically Change the HeroSection Images using "Circular Indexing Techenique":
+    let currentIndex = 0;
+    const changeHeroSectionImages = ()=>{
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        heroMainSection.style.backgroundImage = "url('" + currentImages[currentIndex] + "')"
+        hero_image_2.style.backgroundImage = "url("+currentImages[(currentIndex + 1) % currentImages.length]+")";
+        hero_image_3.style.backgroundImage = "url("+currentImages[(currentIndex + 2) % currentImages.length]+")";
+    };
+
+    setInterval(changeHeroSectionImages, 2500);
+
 
     
     
@@ -268,7 +179,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
         textButtonContainer.className = 'flex justify-between';
 
         const textDiv = document.createElement('div');
-        textDiv.className = 'catergory_text font-semibold text-[36px] uppercase max-xl:text-[30px] max-lg:text-[24px] max-md:text-[20px]';
+        textDiv.className = 'catergory_text font-semibold text-[36px] uppercase max-xl:text-[30px] max-lg:text-[24px] max-md:text-[16px]';
         textDiv.innerText = categoryText;
 
         const buttonContainer = document.createElement('div');
@@ -337,6 +248,22 @@ document.addEventListener('DOMContentLoaded',async()=>{
     
 
     reviews.forEach((review, index) => createReviewCard(review.reviewerName, review.comment, review.rating, thumbnails[index]));
+
+      // Script for review swiper:
+      const swiperReviews = new Swiper(".swiperReviews", {
+        slidesPerView: 1, 
+        spaceBetween: 10, 
+        slidesPerGroup: 1, 
+        loop: true,
+      autoplay: true,
+      breakpoints:{
+        650:{slidesPerView: 2, slidesPerGroup: 1},
+        1024:{slidesPerView: 3, slidesPerGroup: 1},
+      }
+      });
+     
+    
+    
     
 
 
@@ -347,7 +274,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
       
         // Create the upper section of the card
         const upperSection = document.createElement('div');
-        upperSection.className = 'reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white max-xl:p-7 max-lg:p-4 max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl h-[170px]';
+        upperSection.className = 'reviewsSectionCard_1_Upper p-[32px] rounded-tl-[32px] rounded-tr-[32px] bg-white max-xl:p-7 max-lg:p-4 max-xl:rounded-tl-3xl max-xl:rounded-tr-3xl max-lg:rounded-tl-2xl max-lg:rounded-tr-2xl h-[170px] max-sm:h-[120px]';
       
         // Create the title and user section
         const titleUserSection = document.createElement('div');
@@ -415,7 +342,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
       
         // Create the lower section of the card
         const lowerSection = document.createElement('div');
-        lowerSection.className = 'reviewSectionCard_1_Lower rounded-br-[32px] rounded-bl-[32px] bg-[#ebeef0] h-[325px]';
+        lowerSection.className = 'reviewSectionCard_1_Lower rounded-br-[32px] rounded-bl-[32px] bg-[#ebeef0] h-[280px] max-sm:h-[220px]';
       
         // Create the review image
         const reviewImg = document.createElement('img');

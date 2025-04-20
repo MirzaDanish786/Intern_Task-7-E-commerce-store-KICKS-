@@ -175,7 +175,8 @@
         <div class="ourProducts w-[92%] mx-auto  ">
             <div class="ourProductsUpper flex justify-between items-center">
                 <div>
-                    <div class="font-semibold text-[36px]">
+                    <div class="font-semibold text-[36px]
+                    max-sm:text-2xl">
                         Our Products
                     </div>
                     <div class="productsCount font-semibold text-[16px] text-[#232321] opacity-[80%]">
@@ -184,7 +185,9 @@
                 </div>
                 <div class="relative">
                     <button class="trendingBtn font-semibold text-[16px] bg-white flex gap-[50px] justify-center items-center px-[16px] py-[18px] rounded-[16px] cursor-pointer
-                    max-lg:gap-4">
+                    max-lg:gap-4
+                    max-sm:p-3 max-sm:rounded-lg
+                    max-[425px]:gap-3">
                         <div class="trendingBtnText
                         max-lg:text-[15px]">
                             Trending Options
@@ -193,7 +196,7 @@
                             <img class="trendingDropDownImage transition-all duration-150" src="icons/downArrow.svg" alt="">
                         </div>
                     </button>
-                    <div class="trendingDropDown w-full absolute hidden rounded-[8px] bg-[#eeeeee] py-[10px] border">
+                    <div class="trendingDropDown w-full absolute hidden rounded-[8px] bg-[#eeeeee] py-[10px] border z-40">
                       <ul class="flex flex-col justify-center gap-[5px] w-full">
                         <li class="mostTrending px-[10px] cursor-pointer">✨Most Trending</li>
                         <div class="divider h-[1px] w-full border"></div>
@@ -211,11 +214,13 @@
               <div class="flex h-[80vh] gap-[10px] 
               max-md:flex-col max-md:h-auto">
                 <div class="categoryFilter  w-[25%] flex flex-col gap-6
-                max-md:flex-row max-md:w-full max-md:justify-between max-md:sticky max-md:top-0 z-30 max-md:bg-[#eeeeee] max-md:py-3">
-                  <div>
+                max-md:flex-row max-md:w-full max-md:justify-between max-md:sticky max-md:top-0 z-30 max-md:bg-gray-200 max-md:py-3">
+
+                  <div class="max-md:relative max-md:w-1/2">
                     <div class="categoryFilter_Heading font-semibold text-[20px] flex justify-between items-center cursor-pointer select-none border p-3 rounded-[8px] bg-[#eeeeee] 
                     max-lg:text-[15px]
-                    max-md:gap-3">
+                    max-md:gap-3
+                    max-sm:p-2">
                       <div>
                         Category Filter
                       </div>
@@ -224,15 +229,18 @@
                         <img class="categoryFilterDropDownIcon w-full object-contain rotate-180 transition-all duration-150" src="icons/downArrow.svg" alt="">
                       </div>
                     </div>
-                    <div class="categoryListContainer h-[150px] overflow-y-auto  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] custom-scrollbar border 
+                    <div class="categoryListContainer  w-full h-[150px] overflow-y-auto  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] custom-scrollbar border 
+                    max-sm:p-1
+                    max-md:absolute
                      ">
                         <!-- Categories are dynamically appears here: -->
                     </div>
                   </div>
 
-                  <div>
+                  <div class="max-md:w-1/2 max-md:relative">
                     <!-- Rating Filter -->
-                     <div class="ratingFilter flex items-center cursor-pointer justify-between border bg-[#eeeeee] rounded-[8px] p-3">
+                     <div class="ratingFilter flex items-center cursor-pointer justify-between border bg-[#eeeeee] rounded-[8px] p-3
+                     max-sm:p-2">
 
                       <div class="font-semibold text-[20px] flex gap-[25px] items-center select-none 
                       max-lg:text-[15px]">
@@ -245,28 +253,34 @@
                      </div>
 
                      <!-- RatingList -->
-                          <div class="ratingList hidden text-[20px]  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] border ">
-                            <label class="cursor-pointer">
+                          <div class="ratingList hidden text-[20px]  bg-[#eeeeee] rounded-[8px] px-[10px] py-[10px] border 
+                          max-sm:p-2 max-md:absolute max-md:w-full">
+                            <label class="cursor-pointer
+                            max-md:text-[16px] max-md:font-semibold">
                               <input type="radio" name="rating" value="4" checked>
                               4⭐ & above
                             </label>
                             <br>
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer
+                            max-md:text-[16px] max-md:font-semibold">
                               <input type="radio" name="rating" value="3">
                               3⭐ & above
                             </label>
                             <br>
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer
+                            max-md:text-[16px] max-md:font-semibold">
                               <input type="radio" name="rating" value="2">
                               2⭐ & above
                             </label>
                             <br>
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer
+                            max-md:text-[16px] max-md:font-semibold">
                               <input type="radio" name="rating" value="1">
                               1⭐ & above
                             </label>
                             <br>
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer
+                            max-md:text-[16px] max-md:font-semibold">
                               <input type="radio" name="rating" value="0">
                               None of above
                             </label>
@@ -288,7 +302,10 @@
               </div>
 
               <!-- Pagination Section -->
-              <div class="PaginationSection flex gap-3 justify-end items-center py-5">
+              <div class="PaginationSection flex gap-7 justify-end items-center py-5
+              max-sm:flex-col max-sm:items-start">
+
+                <div class="flex gap-4 max-sm:flex max-sm:gap-7">
                 <div class="totalProductsSection flex">
                   <div class="font-semibold">
                     Total Products =
@@ -312,19 +329,22 @@
                       12
                     </div>
                     </div>
+                    </div>
 
                     <!-- Buttons -->
+                     <div class="PaginationButtonsContainer flex gap-4 max-sm:flex max-sm:gap-7">
                 <div>
                   <button class="previousBtn flex justify-center item-center text-lg font-semibold bg-[#d1d1d1] px-3 py-2 rounded-lg cursor-pointer hover:bg-[#bdbdbd]">
                     Previous
                 </button>
               </div>
+              
+            
+              
                 <div>
                   <button class="nextBtn flex justify-center item-center text-lg font-semibold bg-[#d1d1d1] px-3 py-2 rounded-lg cursor-pointer hover:bg-[#bdbdbd]">
                     Next
                 </button>
-              </div>
-
               </div>
           </div>
         </div>
@@ -335,5 +355,7 @@
    
        <script src="scriptListingPage.js"></script>
        <script src="navbar.js"></script>
+
+  
 </body>
 </html>
